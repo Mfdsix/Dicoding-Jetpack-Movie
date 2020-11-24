@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.zgenit.vilmu.R
 import com.zgenit.vilmu.ui.movie.MovieFragment
-import com.zgenit.vilmu.ui.tv_show.TVShowFragment
+import com.zgenit.vilmu.ui.tvshow.TVShowFragment
 
 //
 // Created by Mfdsix on 22/11/2020.

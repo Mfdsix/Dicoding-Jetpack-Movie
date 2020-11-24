@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.zgenit.vilmu.R
-import com.zgenit.vilmu.data.MovieEntity
+import com.zgenit.vilmu.data.movie.MovieEntity
 import kotlinx.android.synthetic.main.items_movie.view.*
 import java.util.*
 

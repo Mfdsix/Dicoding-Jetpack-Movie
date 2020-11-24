@@ -1,4 +1,4 @@
-package com.zgenit.vilmu.ui.tv_show
+package com.zgenit.vilmu.ui.tvshow
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.zgenit.vilmu.R
-import com.zgenit.vilmu.data.TVShowEntity
+import com.zgenit.vilmu.data.tvshow.TVShowEntity
 import kotlinx.android.synthetic.main.items_movie.view.*
 import java.util.*
 

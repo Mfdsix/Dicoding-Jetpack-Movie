@@ -1,7 +1,7 @@
 package com.zgenit.vilmu.utils
 
-import com.zgenit.vilmu.data.MovieEntity
-import com.zgenit.vilmu.data.TVShowEntity
+import com.zgenit.vilmu.data.movie.MovieEntity
+import com.zgenit.vilmu.data.tvshow.TVShowEntity
 
 //
 // Created by Mfdsix on 22/11/2020.
@@ -128,14 +128,14 @@ object DataDummy {
         return movies
     }
 
-    fun getMovieById(movieId: Int): MovieEntity{
+    fun getMovieById(movieId: Int): MovieEntity? {
         val movies = getMovies()
         for(movie in movies){
             if(movie.id == movieId){
                 return movie
             }
         }
-        return MovieEntity()
+        return null
     }
 
     fun getTVShows(): List<TVShowEntity>{
@@ -260,13 +260,13 @@ object DataDummy {
         return tvShows
     }
 
-    fun getTVShowById(tvShowId: Int): TVShowEntity {
+    fun getTVShowById(tvShowId: Int): TVShowEntity? {
         val tvShows = getTVShows()
         for(tvShow in tvShows){
             if(tvShow.id == tvShowId){
                 return tvShow
             }
         }
-        return TVShowEntity()
+        return null
     }
 }

@@ -7,22 +7,12 @@
     android:orientation="vertical"
     tools:context=".ui.home.HomeActivity">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        android:minHeight="?attr/actionBarSize"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:titleTextColor="@android:color/white"
-        app:title="@string/app_name"
-        android:background="?attr/colorPrimary">
-    </com.google.android.material.appbar.MaterialToolbar>
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        app:tabTextColor="@android:color/white"
+        android:background="@android:color/white"
+        app:tabTextColor="@color/colorAccent"
         app:tabIndicatorColor="@color/colorAccent"/>
 
     <androidx.viewpager.widget.ViewPager
