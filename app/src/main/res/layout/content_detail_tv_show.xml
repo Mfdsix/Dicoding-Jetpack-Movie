@@ -39,7 +39,7 @@
                 android:id="@+id/img_poster"
                 android:layout_width="100dp"
                 android:layout_height="125dp"
-                android:src="@color/colorImage"
+                android:src="@color/colorPrimary"
                 app:layout_constraintBottom_toBottomOf="@+id/img_background"
                 app:layout_constraintEnd_toEndOf="@+id/view"
                 app:layout_constraintStart_toStartOf="parent"
@@ -155,6 +155,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textStyle="bold"
                 android:text="@string/user_score"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />

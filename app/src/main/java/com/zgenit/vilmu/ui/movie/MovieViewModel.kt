@@ -1,7 +1,6 @@
 package com.zgenit.vilmu.ui.movie
 
 import androidx.lifecycle.ViewModel
-import com.zgenit.vilmu.data.movie.MovieEntity
 import com.zgenit.vilmu.data.movie.MovieListEntity
 import com.zgenit.vilmu.data.movie.MovieSingleEntity
 import com.zgenit.vilmu.utils.DataDummy

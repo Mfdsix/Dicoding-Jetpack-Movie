@@ -1,7 +1,7 @@
 package com.zgenit.vilmu.ui.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.zgenit.vilmu.R
 import kotlinx.android.synthetic.main.activity_home.*
 

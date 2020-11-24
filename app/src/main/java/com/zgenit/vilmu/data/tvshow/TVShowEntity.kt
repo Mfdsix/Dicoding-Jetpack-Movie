@@ -6,12 +6,12 @@ package com.zgenit.vilmu.data.tvshow
 //
 
 data class TVShowEntity(
-    var id: Int ?= 0,
-    var title: String ?= "-",
-    var description: String ?= "-",
-    var year: Int ?= 0,
-    var img: String ?= null,
-    var category: String ?= "-",
-    var userScore: Int ?= 0,
-    var duration: String ?= "-",
+        var id: Int ?= 0,
+        var title: String ?= "-",
+        var description: String ?= "-",
+        var year: Int ?= 0,
+        var img: String ?= null,
+        var category: String ?= "-",
+        var userScore: Int ?= 0,
+        var duration: String ?= "-",
 )

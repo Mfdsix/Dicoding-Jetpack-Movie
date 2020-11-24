@@ -1,8 +1,6 @@
 package com.zgenit.vilmu.ui.tvshow
 
 import androidx.lifecycle.ViewModel
-import com.zgenit.vilmu.data.movie.MovieListEntity
-import com.zgenit.vilmu.data.tvshow.TVShowEntity
 import com.zgenit.vilmu.data.tvshow.TVShowListEntity
 import com.zgenit.vilmu.data.tvshow.TVShowSingleEntity
 import com.zgenit.vilmu.utils.DataDummy

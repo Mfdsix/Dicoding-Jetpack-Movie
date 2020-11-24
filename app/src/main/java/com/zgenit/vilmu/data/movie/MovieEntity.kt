@@ -6,13 +6,13 @@ package com.zgenit.vilmu.data.movie
 //
 
 data class MovieEntity(
-    var id: Int ?= 0,
-    var title: String ?= "-",
-    var description: String ?= "-",
-    var year: Int ?= 0,
-    var img: String ?= null,
-    var category: String ?= "-",
-    var userScore: Int ?= 0,
-    var duration: String ?= "-",
-    var director: String ?= "-",
+        var id: Int ?= 0,
+        var title: String ?= "-",
+        var description: String ?= "-",
+        var year: Int ?= 0,
+        var img: String ?= null,
+        var category: String ?= "-",
+        var userScore: Int ?= 0,
+        var duration: String ?= "-",
+        var director: String ?= "-",
 )
