@@ -4,12 +4,13 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.zgenit.vilmu.R
 import com.zgenit.vilmu.data.movie.MovieEntity
-import kotlinx.android.synthetic.main.items_movie.view.*
 import java.util.*
 
 //
@@ -40,22 +41,26 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.CourseViewHolder>() {
 
     class CourseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(movie: MovieEntity) {
-            with(itemView) {
-                tv_item_title.text = movie.title
-                tv_item_category.text = movie.category
-                tv_item_duration.text = movie.duration
-                itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, MovieDetailActivity::class.java)
-                    intent.putExtra(MovieDetailActivity.EXTRA_MOVIE, movie.id)
-                    itemView.context.startActivity(intent)
-                }
-                Glide.with(itemView.context)
-                    .load(movie.img)
-                    .apply(
-                        RequestOptions.placeholderOf(R.drawable.ic_loading)
-                        .error(R.drawable.ic_error))
-                    .into(img_poster)
+            val tvItemTitle = itemView.findViewById<TextView>(R.id.tv_item_title)
+            val tvItemCategory = itemView.findViewById<TextView>(R.id.tv_item_category)
+            val tvItemDuration = itemView.findViewById<TextView>(R.id.tv_item_duration)
+            val imgPoster = itemView.findViewById<ImageView>(R.id.img_poster)
+
+            tvItemTitle.text = movie.title
+            tvItemCategory.text = movie.category
+            tvItemDuration.text = movie.duration
+
+            itemView.setOnClickListener {
+                val intent = Intent(itemView.context, MovieDetailActivity::class.java)
+                intent.putExtra(MovieDetailActivity.EXTRA_MOVIE, movie.id)
+                itemView.context.startActivity(intent)
             }
+            Glide.with(itemView.context)
+                .load(movie.img)
+                .apply(
+                    RequestOptions.placeholderOf(R.drawable.ic_loading)
+                        .error(R.drawable.ic_error))
+                .into(imgPoster)
         }
     }
 }

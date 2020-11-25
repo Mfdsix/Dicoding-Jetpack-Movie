@@ -2,6 +2,8 @@ package com.zgenit.vilmu.ui.movie
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -9,7 +11,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.zgenit.vilmu.R
 import com.zgenit.vilmu.data.movie.MovieEntity
-import kotlinx.android.synthetic.main.content_detail_movie.*
 
 class MovieDetailActivity : AppCompatActivity() {
 
@@ -45,26 +46,36 @@ class MovieDetailActivity : AppCompatActivity() {
     private fun populateMovie(movie: MovieEntity){
         supportActionBar?.title = movie.title
 
-        text_title.text = movie.title
-        text_category.text = movie.category
-        text_year.text = movie.year.toString()
-        text_director.text = movie.director
-        text_duration.text = movie.duration
-        text_score.text = "${movie.userScore}%"
-        text_overview.text = movie.description
+        val textTitle: TextView = findViewById(R.id.text_movie_title)
+        val textCategory: TextView = findViewById(R.id.text_movie_category)
+        val textYear: TextView = findViewById(R.id.text_movie_year)
+        val textDirector: TextView = findViewById(R.id.text_movie_director)
+        val textDuration: TextView = findViewById(R.id.text_movie_duration)
+        val textScore: TextView = findViewById(R.id.text_movie_score)
+        val textOverview: TextView = findViewById(R.id.text_movie_overview)
+        val imgPoster: ImageView = findViewById(R.id.img_movie_poster)
+        val imgBackground: ImageView = findViewById(R.id.img_movie_background)
+
+        textTitle.text = movie.title
+        textCategory.text = movie.category
+        textYear.text = movie.year.toString()
+        textDirector.text = movie.director
+        textDuration.text = movie.duration
+        textScore.text = "${movie.userScore}%"
+        textOverview.text = movie.description
 
         Glide.with(this)
                 .load(movie.img)
                 .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_loading)
                                 .error(R.drawable.ic_error))
-                .into(img_poster)
+                .into(imgPoster)
         Glide.with(this)
             .load(movie.img)
             .apply(
                 RequestOptions.placeholderOf(R.drawable.ic_loading)
                     .error(R.drawable.ic_error))
-            .into(img_background)
+            .into(imgBackground)
     }
 
     override fun onSupportNavigateUp(): Boolean {
