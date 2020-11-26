@@ -18,9 +18,10 @@ import org.junit.Test
 // Copyright (c) 2020 Zgenit. All rights reserved.
 //
 
-class MovieFragmentTest {
+class HomeActivityTest {
 
     private val movies = DataDummy.getMovies()
+    private val tvShows = DataDummy.getTVShows()
 
     @get:Rule
     var activityRule = ActivityTestRule(HomeActivity::class.java)
@@ -31,11 +32,10 @@ class MovieFragmentTest {
             .check(ViewAssertions.matches(isDisplayed()))
         onView(withId(R.id.rv_movie))
             .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(movies.size))
-
-        loadDetailMovie()
     }
 
-    private fun loadDetailMovie() {
+    @Test
+    fun loadDetailMovie() {
         onView(withId(R.id.rv_movie)).perform(
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0,
                 ViewActions.click()
@@ -80,6 +80,66 @@ class MovieFragmentTest {
                 .check(ViewAssertions.matches(isDisplayed()))
         onView(withId(R.id.text_movie_overview))
                 .check(ViewAssertions.matches(withText(movies[0].description)))
+    }
+
+    @Test
+    fun loadTVShows() {
+        onView(withText("TV Shows")).perform(ViewActions.click())
+
+        onView(withId(R.id.rv_tv_show))
+                .check(ViewAssertions.matches(isDisplayed()))
+        onView(withId(R.id.rv_tv_show))
+                .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(tvShows.size))
+    }
+
+    @Test
+    fun loadDetailTVShow() {
+        onView(withText("TV Shows")).perform(ViewActions.click())
+
+        onView(withId(R.id.rv_tv_show))
+                .check(ViewAssertions.matches(isDisplayed()))
+        onView(withId(R.id.rv_tv_show))
+                .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(tvShows.size))
+
+        onView(withId(R.id.rv_tv_show)).perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0,
+                        ViewActions.click()
+                ))
+
+        onView(withId(R.id.img_tv_show_poster))
+                .check(ViewAssertions.matches(isDisplayed()))
+        onView(withId(R.id.img_tv_show_background))
+                .check(ViewAssertions.matches(isDisplayed()))
+
+        onView(withId(R.id.text_tv_show_title))
+                .check(ViewAssertions.matches(isDisplayed()))
+        onView(withId(R.id.text_tv_show_title))
+                .check(ViewAssertions.matches(withText(tvShows[0].title)))
+
+        onView(withId(R.id.text_tv_show_category))
+                .check(ViewAssertions.matches(isDisplayed()))
+        onView(withId(R.id.text_tv_show_category))
+                .check(ViewAssertions.matches(withText(tvShows[0].category)))
+
+        onView(withId(R.id.text_tv_show_year))
+                .check(ViewAssertions.matches(isDisplayed()))
+        onView(withId(R.id.text_tv_show_year))
+                .check(ViewAssertions.matches(withText(tvShows[0].year.toString())))
+
+        onView(withId(R.id.text_tv_show_duration))
+                .check(ViewAssertions.matches(isDisplayed()))
+        onView(withId(R.id.text_tv_show_duration))
+                .check(ViewAssertions.matches(withText(tvShows[0].duration)))
+
+        onView(withId(R.id.text_tv_show_score))
+                .check(ViewAssertions.matches(isDisplayed()))
+        onView(withId(R.id.text_tv_show_score))
+                .check(ViewAssertions.matches(withText("${tvShows[0].userScore}%")))
+
+        onView(withId(R.id.text_tv_show_overview))
+                .check(ViewAssertions.matches(isDisplayed()))
+        onView(withId(R.id.text_tv_show_overview))
+                .check(ViewAssertions.matches(withText(tvShows[0].description)))
     }
 
 }
