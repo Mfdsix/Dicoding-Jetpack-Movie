@@ -1,47 +1,16 @@
 package com.zgenit.vilmu.ui.movie
 
 import androidx.lifecycle.ViewModel
-import com.zgenit.vilmu.data.movie.MovieListEntity
-import com.zgenit.vilmu.data.movie.MovieSingleEntity
-import com.zgenit.vilmu.utils.DataDummy
+import com.zgenit.vilmu.data.source.MovieRepository
+import com.zgenit.vilmu.data.source.remote.response.MovieResponse
 
 //
 // Created by Mfdsix on 24/11/2020.
 // Copyright (c) 2020 Zgenit. All rights reserved.
 //
 
-class MovieViewModel: ViewModel(){
-    fun getMovies(): MovieListEntity {
-        val datas = DataDummy.getMovies()
+class MovieViewModel(private val movieRepository: MovieRepository): ViewModel(){
+    fun getMovies(): List<MovieResponse> = movieRepository.getMovies()
 
-        return if(datas.isNotEmpty()){
-            MovieListEntity(
-                    true,
-                    "success",
-                    datas
-            )
-        }else{
-            MovieListEntity(
-                    false,
-                    "no data available",
-            )
-        }
-    }
-
-    fun getMovieById(movieId: Int) : MovieSingleEntity {
-        val data = DataDummy.getMovieById(movieId = movieId)
-
-        return if(data != null){
-            MovieSingleEntity(
-                    true,
-                    "success",
-                    data
-            )
-        }else{
-            MovieSingleEntity(
-                    false,
-                    "data not found",
-            )
-        }
-    }
+    fun getMovieById(movieId: Int) : MovieResponse = movieRepository.getMovieById(movieId)
 }

@@ -41,4 +41,7 @@ ext {
     lifecycleVersion='2.2.0'
     androidXTestVersion = '1.2.0'
 
+    retrofitVersion = '2.9.0'
+    mockitoVersion = '2.23.4'
+
 }

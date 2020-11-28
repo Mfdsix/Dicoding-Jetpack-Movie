@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.zgenit.vilmu.R
-import com.zgenit.vilmu.data.movie.MovieEntity
+import com.zgenit.vilmu.data.source.remote.response.MovieResponse
 import java.util.*
 
 //
@@ -19,10 +19,9 @@ import java.util.*
 //
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.CourseViewHolder>() {
-    private var listDatas = ArrayList<MovieEntity>()
+    private var listDatas = ArrayList<MovieResponse>()
 
-    fun setDatas(courses: List<MovieEntity>?) {
-        if (courses == null) return
+    fun setDatas(courses: List<MovieResponse>) {
         this.listDatas.clear()
         this.listDatas.addAll(courses)
     }
@@ -40,15 +39,15 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.CourseViewHolder>() {
     override fun getItemCount(): Int = listDatas.size
 
     class CourseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(movie: MovieEntity) {
+        fun bind(movie: MovieResponse) {
             val tvItemTitle = itemView.findViewById<TextView>(R.id.tv_item_title)
             val tvItemCategory = itemView.findViewById<TextView>(R.id.tv_item_category)
             val tvItemDuration = itemView.findViewById<TextView>(R.id.tv_item_duration)
             val imgPoster = itemView.findViewById<ImageView>(R.id.img_poster)
 
             tvItemTitle.text = movie.title
-            tvItemCategory.text = movie.category
-            tvItemDuration.text = movie.duration
+            tvItemCategory.text = movie.language
+            tvItemDuration.text = movie.releaseDate
 
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, MovieDetailActivity::class.java)
@@ -56,7 +55,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.CourseViewHolder>() {
                 itemView.context.startActivity(intent)
             }
             Glide.with(itemView.context)
-                .load(movie.img)
+                .load(movie.posterPath)
                 .apply(
                     RequestOptions.placeholderOf(R.drawable.ic_loading)
                         .error(R.drawable.ic_error))

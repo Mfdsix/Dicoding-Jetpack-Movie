@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.zgenit.vilmu.R
-import com.zgenit.vilmu.data.tvshow.TVShowEntity
+import com.zgenit.vilmu.data.source.remote.response.TVShowResponse
 import java.util.*
 
 //
@@ -19,10 +19,9 @@ import java.util.*
 //
 
 class TVShowAdapter : RecyclerView.Adapter<TVShowAdapter.TVShowViewHolder>() {
-    private var listDatas = ArrayList<TVShowEntity>()
+    private var listDatas = ArrayList<TVShowResponse>()
 
-    fun setDatas(tvShows: List<TVShowEntity>?) {
-        if (tvShows == null) return
+    fun setDatas(tvShows: List<TVShowResponse>) {
         this.listDatas.clear()
         this.listDatas.addAll(tvShows)
     }
@@ -40,15 +39,15 @@ class TVShowAdapter : RecyclerView.Adapter<TVShowAdapter.TVShowViewHolder>() {
     override fun getItemCount(): Int = listDatas.size
 
     class TVShowViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(tvShow: TVShowEntity) {
+        fun bind(tvShow: TVShowResponse) {
             val tvItemTitle = itemView.findViewById<TextView>(R.id.tv_item_title)
             val tvItemCategory = itemView.findViewById<TextView>(R.id.tv_item_category)
             val tvItemDuration = itemView.findViewById<TextView>(R.id.tv_item_duration)
             val imgPoster = itemView.findViewById<ImageView>(R.id.img_poster)
 
             tvItemTitle.text = tvShow.title
-            tvItemCategory.text = tvShow.category
-            tvItemDuration.text = tvShow.duration
+            tvItemCategory.text = tvShow.language
+            tvItemDuration.text = tvShow.firstAirDate
 
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, TVShowDetailActivity::class.java)
@@ -56,7 +55,7 @@ class TVShowAdapter : RecyclerView.Adapter<TVShowAdapter.TVShowViewHolder>() {
                 itemView.context.startActivity(intent)
             }
             Glide.with(itemView.context)
-                .load(tvShow.img)
+                .load(tvShow.posterPath)
                 .apply(
                     RequestOptions.placeholderOf(R.drawable.ic_loading)
                         .error(R.drawable.ic_error))

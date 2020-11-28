@@ -9,7 +9,6 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import com.zgenit.vilmu.R
 import com.zgenit.vilmu.ui.home.HomeActivity
-import com.zgenit.vilmu.utils.DataDummy
 import org.junit.Rule
 import org.junit.Test
 
