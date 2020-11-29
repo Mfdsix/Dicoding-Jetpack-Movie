@@ -1,6 +1,5 @@
 package com.zgenit.vilmu.viewmodel
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.zgenit.vilmu.data.source.MovieRepository
@@ -19,9 +18,9 @@ class ViewModelFactory private constructor(private val mMovieRepository: MovieRe
         @Volatile
         private var instance: ViewModelFactory? = null
 
-        fun getInstance(context: Context): ViewModelFactory =
+        fun getInstance(): ViewModelFactory =
                 instance ?: synchronized(this) {
-                    instance ?: ViewModelFactory(Injection.provideRepository(context))
+                    instance ?: ViewModelFactory(Injection.provideRepository())
                 }
     }
 

@@ -2,15 +2,18 @@ package com.zgenit.vilmu.ui.tvshow
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.zgenit.vilmu.R
-import com.zgenit.vilmu.data.source.remote.response.TVShowResponse
+import com.zgenit.vilmu.data.source.local.entity.TVShowEntity
 import com.zgenit.vilmu.viewmodel.ViewModelFactory
 
 class TVShowDetailActivity : AppCompatActivity() {
@@ -29,10 +32,24 @@ class TVShowDetailActivity : AppCompatActivity() {
         if (extras != null) {
             val tvShowId = extras.getInt(EXTRA_TV_SHOW, 0)
             if (tvShowId != 0) {
-                val factory = ViewModelFactory.getInstance(this)
+                val factory = ViewModelFactory.getInstance()
                 val viewModel = ViewModelProvider(this, factory)[TVShowViewModel::class.java]
-                val tvShow = viewModel.getTVShowVById(tvShowId)
-                populateTVShow(tvShow)
+                val mainView : NestedScrollView = findViewById(R.id.main_view)
+                val progressBar: ProgressBar = findViewById(R.id.progressbar)
+
+                mainView.visibility = View.GONE
+                progressBar.visibility = View.VISIBLE
+
+                viewModel.getTVShowVById(tvShowId).observe(this, { tvShow ->
+                    if(tvShow != null){
+                        mainView.visibility = View.VISIBLE
+                        progressBar.visibility = View.GONE
+                        populateTVShow(tvShow)
+                    }else{
+                        Toast.makeText(this, getString(R.string.tv_show_not_found), Toast.LENGTH_SHORT).show()
+                    }
+                })
+
             }else{
                 Toast.makeText(this, getString(R.string.id_not_valid), Toast.LENGTH_SHORT).show()
             }
@@ -40,7 +57,7 @@ class TVShowDetailActivity : AppCompatActivity() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun populateTVShow(tvShow: TVShowResponse){
+    private fun populateTVShow(tvShow: TVShowEntity){
         supportActionBar?.title = tvShow.title
 
         val textTitle: TextView = findViewById(R.id.text_tv_show_title)

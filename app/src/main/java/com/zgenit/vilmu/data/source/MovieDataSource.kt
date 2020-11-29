@@ -1,7 +1,8 @@
 package com.zgenit.vilmu.data.source
 
-import com.zgenit.vilmu.data.source.remote.response.MovieResponse
-import com.zgenit.vilmu.data.source.remote.response.TVShowResponse
+import androidx.lifecycle.LiveData
+import com.zgenit.vilmu.data.source.local.entity.MovieEntity
+import com.zgenit.vilmu.data.source.local.entity.TVShowEntity
 
 //
 // Created by Mfdsix on 27/11/2020.
@@ -10,11 +11,11 @@ import com.zgenit.vilmu.data.source.remote.response.TVShowResponse
 
 interface MovieDataSource {
 
-    fun getMovies(): List<MovieResponse>
+    fun getMovies(): LiveData<List<MovieEntity>>
 
-    fun getMovieById(movieId: Int): MovieResponse
+    fun getMovieById(movieId: Int): LiveData<MovieEntity?>
 
-    fun getTVShows(): List<TVShowResponse>
+    fun getTVShows(): LiveData<List<TVShowEntity>>
 
-    fun getTVShowById(tvShowId: Int): TVShowResponse
+    fun getTVShowById(tvShowId: Int): LiveData<TVShowEntity?>
 }

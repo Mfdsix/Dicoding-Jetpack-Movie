@@ -40,8 +40,12 @@ ext {
     legacyVersion='1.0.0'
     lifecycleVersion='2.2.0'
     androidXTestVersion = '1.2.0'
+    supportTestRunner = '1.0.2'
 
     retrofitVersion = '2.9.0'
     mockitoVersion = '2.23.4'
+    mockitoKotlinVersion = '2.1.0'
+    archLifecycleVersion = '2.1.0'
+    json = '20180813'
 
 }

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.zgenit.vilmu.R
+import com.zgenit.vilmu.data.source.local.entity.MovieEntity
 import com.zgenit.vilmu.data.source.remote.response.MovieResponse
 import java.util.*
 
@@ -19,9 +20,9 @@ import java.util.*
 //
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.CourseViewHolder>() {
-    private var listDatas = ArrayList<MovieResponse>()
+    private var listDatas = ArrayList<MovieEntity>()
 
-    fun setDatas(courses: List<MovieResponse>) {
+    fun setDatas(courses: List<MovieEntity>) {
         this.listDatas.clear()
         this.listDatas.addAll(courses)
     }
@@ -39,7 +40,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.CourseViewHolder>() {
     override fun getItemCount(): Int = listDatas.size
 
     class CourseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(movie: MovieResponse) {
+        fun bind(movie: MovieEntity) {
             val tvItemTitle = itemView.findViewById<TextView>(R.id.tv_item_title)
             val tvItemCategory = itemView.findViewById<TextView>(R.id.tv_item_category)
             val tvItemDuration = itemView.findViewById<TextView>(R.id.tv_item_duration)

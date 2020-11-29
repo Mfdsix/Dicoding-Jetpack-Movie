@@ -1,33 +1,17 @@
 package com.zgenit.vilmu.utils
 
-import android.content.Context
 import com.zgenit.vilmu.data.source.remote.response.MovieResponse
 import com.zgenit.vilmu.data.source.remote.response.TVShowResponse
 import org.json.JSONException
 import org.json.JSONObject
-import java.io.IOException
-import java.util.ArrayList
+import java.util.*
 
 //
 // Created by Mfdsix on 27/11/2020.
 // Copyright (c) 2020 Zgenit. All rights reserved.
 //
 
-class JsonHelper(private val context: Context) {
-
-    fun parsingFileToString(fileName: String): String? {
-        return try {
-            val `is` = context.assets.open(fileName)
-            val buffer = ByteArray(`is`.available())
-            `is`.read(buffer)
-            `is`.close()
-            String(buffer)
-
-        } catch (ex: IOException) {
-            ex.printStackTrace()
-            null
-        }
-    }
+class JsonHelper {
 
     fun loadMovies(json: String): List<MovieResponse> {
         val list = ArrayList<MovieResponse>()

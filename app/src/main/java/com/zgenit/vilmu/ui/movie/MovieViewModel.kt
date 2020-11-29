@@ -1,7 +1,9 @@
 package com.zgenit.vilmu.ui.movie
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.zgenit.vilmu.data.source.MovieRepository
+import com.zgenit.vilmu.data.source.local.entity.MovieEntity
 import com.zgenit.vilmu.data.source.remote.response.MovieResponse
 
 //
@@ -10,7 +12,7 @@ import com.zgenit.vilmu.data.source.remote.response.MovieResponse
 //
 
 class MovieViewModel(private val movieRepository: MovieRepository): ViewModel(){
-    fun getMovies(): List<MovieResponse> = movieRepository.getMovies()
+    fun getMovies(): LiveData<List<MovieEntity>> = movieRepository.getMovies()
 
-    fun getMovieById(movieId: Int) : MovieResponse = movieRepository.getMovieById(movieId)
+    fun getMovieById(movieId: Int) : LiveData<MovieEntity?> = movieRepository.getMovieById(movieId)
 }

@@ -1,7 +1,7 @@
 package com.zgenit.vilmu.di
 
-import android.content.Context
 import com.zgenit.vilmu.data.source.MovieRepository
+import com.zgenit.vilmu.data.source.remote.RemoteDataSource
 import com.zgenit.vilmu.utils.JsonHelper
 
 //
@@ -10,8 +10,9 @@ import com.zgenit.vilmu.utils.JsonHelper
 //
 
 object Injection {
-    fun provideRepository(context: Context): MovieRepository {
+    fun provideRepository(): MovieRepository {
 
-        return MovieRepository.getInstance(JsonHelper(context))
+        val remoteDataSource = RemoteDataSource.getInstance(JsonHelper())
+        return MovieRepository.getInstance(remoteDataSource)
     }
 }

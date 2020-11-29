@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.zgenit.vilmu.R
+import com.zgenit.vilmu.data.source.local.entity.TVShowEntity
 import com.zgenit.vilmu.data.source.remote.response.TVShowResponse
 import java.util.*
 
@@ -19,9 +20,9 @@ import java.util.*
 //
 
 class TVShowAdapter : RecyclerView.Adapter<TVShowAdapter.TVShowViewHolder>() {
-    private var listDatas = ArrayList<TVShowResponse>()
+    private var listDatas = ArrayList<TVShowEntity>()
 
-    fun setDatas(tvShows: List<TVShowResponse>) {
+    fun setDatas(tvShows: List<TVShowEntity>) {
         this.listDatas.clear()
         this.listDatas.addAll(tvShows)
     }
@@ -39,7 +40,7 @@ class TVShowAdapter : RecyclerView.Adapter<TVShowAdapter.TVShowViewHolder>() {
     override fun getItemCount(): Int = listDatas.size
 
     class TVShowViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(tvShow: TVShowResponse) {
+        fun bind(tvShow: TVShowEntity) {
             val tvItemTitle = itemView.findViewById<TextView>(R.id.tv_item_title)
             val tvItemCategory = itemView.findViewById<TextView>(R.id.tv_item_category)
             val tvItemDuration = itemView.findViewById<TextView>(R.id.tv_item_duration)

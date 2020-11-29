@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -22,14 +23,23 @@ class TVShowFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         if(activity != null){
-            val factory = ViewModelFactory.getInstance(requireActivity())
+            val factory = ViewModelFactory.getInstance()
             val viewModel = ViewModelProvider(this, factory)[TVShowViewModel::class.java]
-            val tvShows = viewModel.getTVShows()
 
             val tvShowAdapter = TVShowAdapter()
             val rvTVShow : RecyclerView? = view?.findViewById(R.id.rv_tv_show)
+            val progressBar : ProgressBar? = view?.findViewById(R.id.progressbar)
 
-            tvShowAdapter.setDatas(tvShows)
+            progressBar?.visibility = View.VISIBLE
+            rvTVShow?.visibility = View.GONE
+
+            viewModel.getTVShows().observe(viewLifecycleOwner, { tvShows ->
+                tvShowAdapter.setDatas(tvShows)
+                tvShowAdapter.notifyDataSetChanged()
+                progressBar?.visibility = View.GONE
+                rvTVShow?.visibility = View.VISIBLE
+            })
+
             if(rvTVShow != null) {
                 with(rvTVShow) {
                     layoutManager = GridLayoutManager(context, 2)

@@ -1,7 +1,8 @@
-package com.zgenit.vilmu.data.source
+package com.zgenit.vilmu.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.zgenit.vilmu.data.source.MovieDataSource
 import com.zgenit.vilmu.data.source.local.entity.MovieEntity
 import com.zgenit.vilmu.data.source.local.entity.TVShowEntity
 import com.zgenit.vilmu.data.source.remote.RemoteDataSource
@@ -10,21 +11,11 @@ import com.zgenit.vilmu.data.source.remote.response.TVShowResponse
 import java.util.*
 
 //
-// Created by Mfdsix on 27/11/2020.
+// Created by Mfdsix on 28/11/2020.
 // Copyright (c) 2020 Zgenit. All rights reserved.
 //
 
-class MovieRepository(private val remoteDataSource: RemoteDataSource) : MovieDataSource {
-
-    companion object {
-        @Volatile
-        private var instance: MovieRepository? = null
-
-        fun getInstance(remoteData: RemoteDataSource): MovieRepository =
-            instance ?: synchronized(this) {
-                instance ?: MovieRepository(remoteData)
-            }
-    }
+class FakeMovieRepository(private val remoteDataSource: RemoteDataSource) : MovieDataSource {
 
     override fun getMovies(): LiveData<List<MovieEntity>> {
 
@@ -128,4 +119,5 @@ class MovieRepository(private val remoteDataSource: RemoteDataSource) : MovieDat
 
         return tvShowResult
     }
+
 }
