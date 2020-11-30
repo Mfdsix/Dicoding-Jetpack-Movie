@@ -60,17 +60,17 @@ class MovieDetailActivity : AppCompatActivity() {
         supportActionBar?.title = movie.title
 
         val textTitle: TextView = findViewById(R.id.text_movie_title)
-        val textCategory: TextView = findViewById(R.id.text_movie_category)
-        val textYear: TextView = findViewById(R.id.text_movie_year)
+        val textLanguage: TextView = findViewById(R.id.text_movie_language)
+        val textReleaseDate: TextView = findViewById(R.id.text_movie_release_date)
         val textScore: TextView = findViewById(R.id.text_movie_score)
         val textOverview: TextView = findViewById(R.id.text_movie_overview)
         val imgPoster: ImageView = findViewById(R.id.img_movie_poster)
         val imgBackground: ImageView = findViewById(R.id.img_movie_background)
 
         textTitle.text = movie.title
-        textCategory.text = movie.language
-        textYear.text = movie.releaseDate
-        textScore.text = "${movie.voteAverage}%"
+        textLanguage.text = movie.language
+        textReleaseDate.text = movie.releaseDate
+        textScore.text = movie.voteAverage.toString()
         textOverview.text = movie.overview
 
         Glide.with(this)

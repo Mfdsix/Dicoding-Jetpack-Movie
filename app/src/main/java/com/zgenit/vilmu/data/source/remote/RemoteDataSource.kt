@@ -1,18 +1,19 @@
 package com.zgenit.vilmu.data.source.remote
 
 import android.os.Handler
-import android.os.Looper
-import com.zgenit.vilmu.data.source.remote.response.MovieResponse
-import com.zgenit.vilmu.data.source.remote.response.TVShowResponse
+import com.zgenit.vilmu.data.source.local.entity.MovieEntity
+import com.zgenit.vilmu.data.source.local.entity.TVShowEntity
 import com.zgenit.vilmu.utils.DataDummy
-import com.zgenit.vilmu.utils.JsonHelper
+import com.zgenit.vilmu.utils.EspressoIdlingResource
 
 //
 // Created by Mfdsix on 29/11/2020.
 // Copyright (c) 2020 Zgenit. All rights reserved.
 //
 
-class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
+class RemoteDataSource{
+
+    private val handler = Handler()
 
     companion object {
         private const val SERVICE_LATENCY_IN_MILLIS: Long = 2000
@@ -20,63 +21,76 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
         @Volatile
         private var instance: RemoteDataSource? = null
 
-        fun getInstance(helper: JsonHelper): RemoteDataSource =
+        fun getInstance(): RemoteDataSource =
             instance ?: synchronized(this) {
-                instance ?: RemoteDataSource(helper)
+                instance ?: RemoteDataSource()
             }
     }
 
     fun getMovies(callback: LoadMoviesCallback){
-        Handler(Looper.getMainLooper()).postDelayed({
-            callback.onMoviesReceived(jsonHelper.loadMovies(DataDummy.getMovies()))
+        EspressoIdlingResource.increment()
+        handler.postDelayed({
+            callback.onMoviesReceived(DataDummy.getMovies())
+            EspressoIdlingResource.decrement()
         }, SERVICE_LATENCY_IN_MILLIS)
     }
 
     fun getMovieById(movieId: Int, callback: LoadMovieByIdCallback){
-        val movies = jsonHelper.loadMovies(DataDummy.getMovies())
+        EspressoIdlingResource.increment()
+        val movies = DataDummy.getMovies()
 
-        Handler(Looper.getMainLooper()).postDelayed({
+        handler.postDelayed({
             movies.forEach {
                 if(movieId == it.id){
                     callback.onMovieByIdReceived(it)
+                    EspressoIdlingResource.decrement()
+                    return@postDelayed
                 }
             }
             callback.onMovieByIdReceived(null)
+            EspressoIdlingResource.decrement()
         }, SERVICE_LATENCY_IN_MILLIS)
     }
 
     fun getTVShows(callback: LoadTVShowsCallback){
-        Handler(Looper.getMainLooper()).postDelayed({
-            callback.onTVShowsReceived(jsonHelper.loadTVShows(DataDummy.getTVShows()))
+        EspressoIdlingResource.increment()
+        handler.postDelayed({
+            callback.onTVShowsReceived(DataDummy.getTVShows())
+            EspressoIdlingResource.decrement()
         }, SERVICE_LATENCY_IN_MILLIS)
     }
 
     fun getTVShowById(tvShowId: Int, callback: LoadTVShowByIdCallback){
-        val tvShows = jsonHelper.loadTVShows(DataDummy.getTVShows())
-        Handler(Looper.getMainLooper()).postDelayed({
+        EspressoIdlingResource.increment()
+        val tvShows = DataDummy.getTVShows()
+
+        handler.postDelayed({
             tvShows.forEach {
                 if(tvShowId == it.id){
                     callback.onTVShowByIdReceived(it)
+                    EspressoIdlingResource.decrement()
+                    return@postDelayed
                 }
             }
             callback.onTVShowByIdReceived(null)
+            EspressoIdlingResource.decrement()
         }, SERVICE_LATENCY_IN_MILLIS)
     }
 
     interface LoadMoviesCallback {
-        fun onMoviesReceived(movieResponses: List<MovieResponse>)
+        fun onMoviesReceived(movieResponses: List<MovieEntity>)
     }
 
     interface LoadMovieByIdCallback {
-        fun onMovieByIdReceived(movieResponse: MovieResponse?)
+        fun onMovieByIdReceived(movieResponse: MovieEntity?)
     }
 
     interface LoadTVShowsCallback {
-        fun onTVShowsReceived(tvShowResponses: List<TVShowResponse>)
+        fun onTVShowsReceived(tvShowResponses: List<TVShowEntity>)
     }
 
     interface LoadTVShowByIdCallback {
-        fun onTVShowByIdReceived(tvShowResponse: TVShowResponse?)
+        fun onTVShowByIdReceived(tvShowResponse: TVShowEntity?)
     }
 
 }

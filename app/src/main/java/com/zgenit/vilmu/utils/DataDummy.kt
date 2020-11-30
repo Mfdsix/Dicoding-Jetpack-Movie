@@ -1,5 +1,8 @@
 package com.zgenit.vilmu.utils
 
+import com.zgenit.vilmu.data.source.local.entity.MovieEntity
+import com.zgenit.vilmu.data.source.local.entity.TVShowEntity
+
 //
 // Created by Mfdsix on 28/11/2020.
 // Copyright (c) 2020 Zgenit. All rights reserved.
@@ -7,11 +10,247 @@ package com.zgenit.vilmu.utils
 
 object DataDummy {
 
-    fun getMovies(): String{
-        return "{\"total_results\":8025,\"page\":1,\"total_pages\":402,\"results\":[{\"vote_average\":9.3,\"popularity\":50.91,\"vote_count\":396,\"release_date\":\"2020-11-19\",\"title\":\"Gabriel's Inferno Part III\",\"adult\":false,\"backdrop_path\":\"/fQq1FWp1rC89xDrRMuyFJdFUdMd.jpg\",\"genre_ids\":[],\"overview\":\"The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.\",\"id\":761053,\"original_title\":\"Gabriel's Inferno Part III\",\"poster_path\":\"/qtX2Fg9MTmrbgN1UUvGoCsImTM8.jpg\",\"original_language\":\"en\",\"video\":false},{\"vote_average\":8.9,\"popularity\":12.784,\"vote_count\":1004,\"release_date\":\"2020-07-31\",\"title\":\"Gabriel's Inferno Part II\",\"adult\":false,\"backdrop_path\":\"/jtAI6OJIWLWiRItNSZoWjrsUtmi.jpg\",\"genre_ids\":[10749],\"original_language\":\"en\",\"id\":724089,\"original_title\":\"Gabriel's Inferno Part II\",\"poster_path\":\"/pci1ArYW7oJ2eyTo2NMYEKHHiCP.jpg\",\"overview\":\"Professor Gabriel Emerson finally learns the truth about Julia Mitchell's identity, but his realization comes a moment too late. Julia is done waiting for the well-respected Dante specialist to remember her and wants nothing more to do with him. Can Gabriel win back her heart before she finds love in another's arms?\",\"video\":false},{\"vote_average\":8.8,\"popularity\":14.481,\"vote_count\":1653,\"release_date\":\"2020-05-29\",\"title\":\"Gabriel's Inferno\",\"adult\":false,\"backdrop_path\":\"/w2uGvCpMtvRqZg6waC1hvLyZoJa.jpg\",\"genre_ids\":[10749],\"overview\":\"An intriguing and sinful exploration of seduction, forbidden love, and redemption, Gabriel's Inferno is a captivating and wildly passionate tale of one man's escape from his own personal hell as he tries to earn the impossible--forgiveness and love.\",\"id\":696374,\"original_title\":\"Gabriel's Inferno\",\"poster_path\":\"/oyG9TL7FcRP4EZ9Vid6uKzwdndz.jpg\",\"original_language\":\"en\",\"video\":false},{\"vote_average\":8.7,\"popularity\":39.62,\"vote_count\":17593,\"release_date\":\"1994-09-23\",\"title\":\"The Shawshank Redemption\",\"adult\":false,\"backdrop_path\":\"/iNh3BivHyg5sQRPP1KOkzguEX0H.jpg\",\"genre_ids\":[18,80],\"overview\":\"Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.\",\"id\":278,\"original_title\":\"The Shawshank Redemption\",\"poster_path\":\"/5KCVkau1HEl7ZzfPsKAPM0sMiKc.jpg\",\"original_language\":\"en\",\"video\":false},{\"vote_average\":8.7,\"popularity\":39.225,\"overview\":\"Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.\",\"release_date\":\"1972-03-14\",\"title\":\"The Godfather\",\"adult\":false,\"backdrop_path\":\"/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg\",\"genre_ids\":[18,80],\"vote_count\":13298,\"original_language\":\"en\",\"original_title\":\"The Godfather\",\"poster_path\":\"/3bhkrj58Vtu7enYsRolD1fZdja1.jpg\",\"id\":238,\"video\":false},{\"vote_average\":8.7,\"popularity\":15.594,\"vote_count\":2433,\"release_date\":\"1995-10-20\",\"title\":\"Dilwale Dulhania Le Jayenge\",\"adult\":false,\"backdrop_path\":\"/svYzz6A6xleZv5toTLAhigXd1DX.jpg\",\"genre_ids\":[35,18,10749],\"overview\":\"Raj is a rich, carefree, happy-go-lucky second generation NRI. Simran is the daughter of Chaudhary Baldev Singh, who in spite of being an NRI is very strict about adherence to Indian values. Simran has left for India to be married to her childhood fiancé. Raj leaves for India with a mission at his hands, to claim his lady love under the noses of her whole family. Thus begins a saga.\",\"id\":19404,\"original_title\":\"दिलवाले दुल्हनिया ले जायेंगे\",\"poster_path\":\"/2CAL2433ZeIihfX1Hb2139CX0pW.jpg\",\"original_language\":\"hi\",\"video\":false},{\"vote_average\":8.7,\"popularity\":15.782,\"vote_count\":262,\"release_date\":\"2019-11-01\",\"title\":\"Dedicated to my ex\",\"adult\":false,\"backdrop_path\":\"/8g1rUabKleLvovt0Sx6bXgWfC42.jpg\",\"genre_ids\":[35,18],\"overview\":\"The film tells the story of Ariel, a 21-year-old who decides to form a rock band to compete for a prize of ten thousand dollars in a musical band contest, this as a last option when trying to get money to save their relationship and reunite with his ex-girlfriend, which breaks due to the trip she must make to Finland for an internship. Ariel with her friend Ortega, decides to make a casting to find the other members of the band, although they do not know nothing about music, thus forming a band with members that have diverse and opposite personalities.\",\"id\":644479,\"original_title\":\"Dedicada a mi ex\",\"poster_path\":\"/riAooJrFvVhotyaOgoI0WR7okSe.jpg\",\"original_language\":\"es\",\"video\":false},{\"vote_average\":8.6,\"popularity\":26.346,\"vote_count\":10607,\"release_date\":\"1993-11-30\",\"title\":\"Schindler's List\",\"adult\":false,\"backdrop_path\":\"/loRmRzQXZeqG78TqZuyvSlEQfZb.jpg\",\"genre_ids\":[18,36,10752],\"overview\":\"The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory during World War II.\",\"id\":424,\"original_title\":\"Schindler's List\",\"poster_path\":\"/c8Ass7acuOe4za6DhSattE359gr.jpg\",\"original_language\":\"en\",\"video\":false},{\"vote_average\":8.6,\"popularity\":116.831,\"overview\":\"High schoolers Mitsuha and Taki are complete strangers living separate lives. But one night, they suddenly switch places. Mitsuha wakes up in Taki’s body, and he in hers. This bizarre occurrence continues to happen randomly, and the two must adjust their lives around each other.\",\"release_date\":\"2016-08-26\",\"title\":\"Your Name.\",\"adult\":false,\"backdrop_path\":\"/mMtUybQ6hL24FXo0F3Z4j2KG7kZ.jpg\",\"genre_ids\":[10749,16,18],\"id\":372058,\"original_language\":\"ja\",\"original_title\":\"君の名は。\",\"poster_path\":\"/q719jXXEzOoYaps6babgKnONONX.jpg\",\"vote_count\":6671,\"video\":false},{\"vote_average\":8.6,\"popularity\":33.414,\"vote_count\":7900,\"release_date\":\"1974-12-20\",\"title\":\"The Godfather: Part II\",\"adult\":false,\"backdrop_path\":\"/poec6RqOKY9iSiIUmfyfPfiLtvB.jpg\",\"genre_ids\":[18,80],\"overview\":\"In the continuing saga of the Corleone crime family, a young Vito Corleone grows up in Sicily and in 1910s New York. In the 1950s, Michael Corleone attempts to expand the family business into Las Vegas, Hollywood and Cuba.\",\"id\":240,\"original_title\":\"The Godfather: Part II\",\"poster_path\":\"/hek3koDUyRQk7FIhPXsa6mT2Zc3.jpg\",\"original_language\":\"en\",\"video\":false},{\"vote_average\":8.5,\"popularity\":55.294,\"vote_count\":10457,\"release_date\":\"2001-07-20\",\"title\":\"Spirited Away\",\"adult\":false,\"backdrop_path\":\"/mSDsSDwaP3E7dEfUPWy4J0djt4O.jpg\",\"genre_ids\":[16,10751,14],\"overview\":\"A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.\",\"id\":129,\"original_title\":\"千と千尋の神隠し\",\"poster_path\":\"/eO4NHOsitcVpRw0kolJRLxXdxa2.jpg\",\"original_language\":\"ja\",\"video\":false},{\"vote_average\":8.5,\"popularity\":107.26,\"vote_count\":9816,\"release_date\":\"2019-05-30\",\"title\":\"Parasite\",\"adult\":false,\"backdrop_path\":\"/ApiBzeaa95TNYliSbQ8pJv4Fje7.jpg\",\"genre_ids\":[35,53,18],\"overview\":\"All unemployed, Ki-taek's family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident.\",\"id\":496243,\"original_title\":\"기생충\",\"poster_path\":\"/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg\",\"original_language\":\"ko\",\"video\":false},{\"vote_average\":8.5,\"popularity\":288.496,\"vote_count\":488,\"release_date\":\"2019-12-20\",\"title\":\"My Hero Academia: Heroes Rising\",\"adult\":false,\"backdrop_path\":\"/9guoVF7zayiiUq5ulKQpt375VIy.jpg\",\"genre_ids\":[16,28,35,14,12],\"overview\":\"Class 1-A visits Nabu Island where they finally get to do some real hero work. The place is so peaceful that it's more like a vacation … until they're attacked by a villain with an unfathomable Quirk! His power is eerily familiar, and it looks like Shigaraki had a hand in the plan. But with All Might retired and citizens' lives on the line, there's no time for questions. Deku and his friends are the next generation of heroes, and they're the island's only hope.\",\"original_language\":\"ja\",\"original_title\":\"僕のヒーローアカデミア THE MOVIE ヒーローズ：ライジング\",\"poster_path\":\"/zGVbrulkupqpbwgiNedkJPyQum4.jpg\",\"id\":592350,\"video\":false},{\"vote_average\":8.5,\"popularity\":31.975,\"vote_count\":11275,\"release_date\":\"1999-12-10\",\"title\":\"The Green Mile\",\"adult\":false,\"backdrop_path\":\"/5Nz25DPXfQaSpDgce42Y3kFg9G4.jpg\",\"genre_ids\":[14,18,80],\"overview\":\"A supernatural tale set on death row in a Southern prison, where gentle giant John Coffey possesses the mysterious power to heal people's ailments. When the cell block's head guard, Paul Edgecomb, recognizes Coffey's miraculous gift, he tries desperately to help stave off the condemned man's execution.\",\"id\":497,\"original_title\":\"The Green Mile\",\"poster_path\":\"/velWPhVMQeQKcxggNEU8YmIo52R.jpg\",\"original_language\":\"en\",\"video\":false},{\"vote_average\":8.5,\"popularity\":179.875,\"vote_count\":394,\"release_date\":\"2020-10-09\",\"title\":\"Clouds\",\"adult\":false,\"backdrop_path\":\"/bx326cwBtDsfDcnTgFlK5dXkyaC.jpg\",\"genre_ids\":[10402,18,10749],\"original_language\":\"en\",\"id\":630566,\"original_title\":\"Clouds\",\"poster_path\":\"/2YvT3pdGngzpbAuxamTz4ZlabnT.jpg\",\"overview\":\"Young musician Zach Sobiech discovers his cancer has spread, leaving him just a few months to live. With limited time, he follows his dream and makes an album, unaware that it will soon be a viral music phenomenon.\",\"video\":false},{\"vote_average\":8.5,\"popularity\":7.423,\"vote_count\":284,\"release_date\":\"1974-12-21\",\"title\":\"We All Loved Each Other So Much\",\"adult\":false,\"backdrop_path\":\"/bh6yfB6I1N1WuMiX6K5HxGVZnja.jpg\",\"genre_ids\":[35,18],\"overview\":\"Gianni, Nicola and Antonio become close friends in 1944 while fighting the Nazis. After the end of the war, full of illusions, they settle down. The movie is a the story of the life of these three idealists and how they deal with the inevitable disillusionments of life.\",\"id\":42269,\"original_title\":\"C'eravamo tanto amati\",\"poster_path\":\"/zGGWYpiKNwjpKxelPxOMqJnUgDs.jpg\",\"original_language\":\"it\",\"video\":false},{\"vote_average\":8.5,\"popularity\":42.544,\"overview\":\"A burger-loving hit man, his philosophical partner, a drug-addled gangster's moll and a washed-up boxer converge in this sprawling, comedic crime caper. Their adventures unfurl in three stories that ingeniously trip back and forth in time.\",\"release_date\":\"1994-09-10\",\"title\":\"Pulp Fiction\",\"adult\":false,\"backdrop_path\":\"/w7RDIgQM6bLT7JXtH4iUQd3Iwxm.jpg\",\"genre_ids\":[53,80],\"id\":680,\"original_language\":\"en\",\"original_title\":\"Pulp Fiction\",\"poster_path\":\"/dRZpdpKLgN9nk57zggJCs1TjJb4.jpg\",\"vote_count\":19957,\"video\":false},{\"vote_average\":8.5,\"popularity\":33.367,\"vote_count\":9514,\"release_date\":\"1997-12-20\",\"title\":\"Life Is Beautiful\",\"adult\":false,\"backdrop_path\":\"/6aNKD81RHR1DqUUa8kOZ1TBY1Lp.jpg\",\"genre_ids\":[35,18],\"overview\":\"A touching story of an Italian book seller of Jewish ancestry who lives in his own little fairy tale. His creative and happy life would come to an abrupt halt when his entire family is deported to a concentration camp during World War II. While locked up he tries to convince his son that the whole thing is just a game.\",\"id\":637,\"original_title\":\"La vita è bella\",\"poster_path\":\"/74hLDKjD5aGYOotO6esUVaeISa2.jpg\",\"original_language\":\"it\",\"video\":false},{\"vote_average\":8.5,\"popularity\":50.528,\"vote_count\":16598,\"release_date\":\"2003-12-01\",\"title\":\"The Lord of the Rings: The Return of the King\",\"adult\":false,\"backdrop_path\":\"/9DeGfFIqjph5CBFVQrD6wv9S7rR.jpg\",\"genre_ids\":[12,14,28],\"original_language\":\"en\",\"id\":122,\"original_title\":\"The Lord of the Rings: The Return of the King\",\"poster_path\":\"/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg\",\"overview\":\"Aragorn is revealed as the heir to the ancient kings as he, Gandalf and the other members of the broken fellowship struggle to save Gondor from Sauron's forces. Meanwhile, Frodo and Sam take the ring closer to the heart of Mordor, the dark lord's realm.\",\"video\":false},{\"vote_average\":8.5,\"popularity\":47.202,\"vote_count\":19294,\"release_date\":\"1994-07-06\",\"title\":\"Forrest Gump\",\"adult\":false,\"backdrop_path\":\"/7c9UVPPiTPltouxRVY6N9uugaVA.jpg\",\"genre_ids\":[35,18,10749],\"overview\":\"A man with a low IQ has accomplished great things in his life and been present during significant historic events—in each case, far exceeding what anyone imagined he could do. But despite all he has achieved, his one true love eludes him.\",\"id\":13,\"original_title\":\"Forrest Gump\",\"poster_path\":\"/clolk7rB5lAjs41SD0Vt6IXYLMm.jpg\",\"original_language\":\"en\",\"video\":false}]}"
+    fun getMovies(): List<MovieEntity>{
+        val movies = arrayListOf<MovieEntity>()
+
+        movies.add(MovieEntity(
+                761053,
+                "Gabriel's Inferno Part III",
+                "The final part of the film adaption of the erotic romance novel Gabriel's Inferno written by an anonymous Canadian author under the pen name Sylvain Reynard.",
+                Constant.IMG_BASE_URL + "/qtX2Fg9MTmrbgN1UUvGoCsImTM8.jpg",
+                9.3,
+                "2020-11-19",
+                "en",
+        ))
+        movies.add(MovieEntity(
+                724089,
+                "Gabriel's Inferno Part II",
+                "Professor Gabriel Emerson finally learns the truth about Julia Mitchell's identity, but his realization comes a moment too late. Julia is done waiting for the well-respected Dante specialist to remember her and wants nothing more to do with him. Can Gabriel win back her heart before she finds love in another's arms?",
+                Constant.IMG_BASE_URL + "/pci1ArYW7oJ2eyTo2NMYEKHHiCP.jpg",
+                8.9,
+                "2020-07-31",
+                "en",
+        ))
+        movies.add(MovieEntity(
+                696374,
+                "Gabriel's Inferno",
+                "An intriguing and sinful exploration of seduction, forbidden love, and redemption, Gabriel's Inferno is a captivating and wildly passionate tale of one man's escape from his own personal hell as he tries to earn the impossible--forgiveness and love.",
+                Constant.IMG_BASE_URL + "/oyG9TL7FcRP4EZ9Vid6uKzwdndz.jpg",
+                8.8,
+                "2020-05-29",
+                "en",
+        ))
+        movies.add(MovieEntity(
+                278,
+                "The Shawshank Redemption",
+                "Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.",
+                Constant.IMG_BASE_URL + "/5KCVkau1HEl7ZzfPsKAPM0sMiKc.jpg",
+                8.7,
+                "1994-09-23",
+                "en",
+        ))
+        movies.add(MovieEntity(
+                238,
+                "The Godfather",
+                "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.",
+                Constant.IMG_BASE_URL + "/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+                8.7,
+                "1972-03-14",
+                "en",
+        ))
+        movies.add(MovieEntity(
+                19404,
+                "Dilwale Dulhania Le Jayenge",
+                "Raj is a rich, carefree, happy-go-lucky second generation NRI. Simran is the daughter of Chaudhary Baldev Singh, who in spite of being an NRI is very strict about adherence to Indian values. Simran has left for India to be married to her childhood fiancé. Raj leaves for India with a mission at his hands, to claim his lady love under the noses of her whole family. Thus begins a saga.",
+                Constant.IMG_BASE_URL + "/2CAL2433ZeIihfX1Hb2139CX0pW.jpg",
+                8.7,
+                "1995-10-20",
+                "en",
+        ))
+        movies.add(MovieEntity(
+                644479,
+                "Dedicated to my ex",
+                "The film tells the story of Ariel, a 21-year-old who decides to form a rock band to compete for a prize of ten thousand dollars in a musical band contest, this as a last option when trying to get money to save their relationship and reunite with his ex-girlfriend, which breaks due to the trip she must make to Finland for an internship. Ariel with her friend Ortega, decides to make a casting to find the other members of the band, although they do not know nothing about music, thus forming a band with members that have diverse and opposite personalities.",
+                Constant.IMG_BASE_URL + "/riAooJrFvVhotyaOgoI0WR7okSe.jpg",
+                8.7,
+                "2019-11-01",
+                "en",
+        ))
+        movies.add(MovieEntity(
+                424,
+                "Schindler's List",
+                "The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory during World War II.",
+                Constant.IMG_BASE_URL + "/c8Ass7acuOe4za6DhSattE359gr.jpg",
+                8.6,
+                "1993-11-30",
+                "en",
+        ))
+        movies.add(MovieEntity(
+                372058,
+                "Your Name.",
+                "High schoolers Mitsuha and Taki are complete strangers living separate lives. But one night, they suddenly switch places. Mitsuha wakes up in Taki’s body, and he in hers. This bizarre occurrence continues to happen randomly, and the two must adjust their lives around each other.",
+                Constant.IMG_BASE_URL + "/q719jXXEzOoYaps6babgKnONONX.jpg",
+                8.6,
+                "2016-08-26",
+                "ja",
+        ))
+        movies.add(MovieEntity(
+                240,
+                "The Godfather: Part II",
+                "In the continuing saga of the Corleone crime family, a young Vito Corleone grows up in Sicily and in 1910s New York. In the 1950s, Michael Corleone attempts to expand the family business into Las Vegas, Hollywood and Cuba.",
+                Constant.IMG_BASE_URL + "/hek3koDUyRQk7FIhPXsa6mT2Zc3.jpg",
+                8.6,
+                "1974-12-20",
+                "en",
+        ))
+        movies.add(MovieEntity(
+                129,
+                "Spirited Away",
+                "A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.",
+                Constant.IMG_BASE_URL + "/eO4NHOsitcVpRw0kolJRLxXdxa2.jpg",
+                8.5,
+                "2001-07-20",
+                "ja",
+        ))
+
+        return movies
     }
 
-    fun getTVShows(): String{
-        return "{\"page\":1,\"total_results\":1414,\"results\":[{\"vote_average\":9.4,\"name\":\"I Am Not an Animal\",\"vote_count\":552,\"popularity\":12.409,\"origin_country\":[\"GB\"],\"backdrop_path\":null,\"overview\":\"I Am Not An Animal is an animated comedy series about the only six talking animals in the world, whose cosseted existence in a vivisection unit is turned upside down when they are liberated by animal rights activists.\",\"genre_ids\":[16,35],\"id\":100,\"original_language\":\"en\",\"original_name\":\"I Am Not an Animal\",\"poster_path\":\"/qG59J1Q7rpBc1dvku4azbzcqo8h.jpg\",\"first_air_date\":\"2004-05-10\"},{\"vote_average\":9.2,\"name\":\"Given\",\"overview\":\"The played chord made the rusty air and both our eardrums vibrate smoothly. From that moment... our music was born.\",\"popularity\":29.289,\"original_name\":\"ギヴン\",\"backdrop_path\":\"/7gbmM2NWcqZONbp65HUWDf4wr0Q.jpg\",\"poster_path\":\"/pdDCcAq8RNSZNk81PXYoHNUPHjn.jpg\",\"genre_ids\":[16,18],\"vote_count\":216,\"original_language\":\"ja\",\"id\":88040,\"origin_country\":[\"JP\"],\"first_air_date\":\"2019-07-11\"},{\"vote_average\":9.1,\"name\":\"The Promised Neverland\",\"vote_count\":357,\"popularity\":50.693,\"origin_country\":[\"JP\"],\"backdrop_path\":\"/uAjMQlbPkVHmUahhCouANlHSDW2.jpg\",\"overview\":\"Surrounded by a forest and a gated entrance, the Grace Field House is inhabited by orphans happily living together as one big family, looked after by their \\\"Mama,\\\" Isabella. Although they are required to take tests daily, the children are free to spend their time as they see fit, usually playing outside, as long as they do not venture too far from the orphanage — a rule they are expected to follow no matter what. However, all good times must come to an end, as every few months, a child is adopted and sent to live with their new family... never to be heard from again.\\n\\nHowever, the three oldest siblings have their suspicions about what is actually happening at the orphanage, and they are about to discover the cruel fate that awaits the children living at Grace Field, including the twisted nature of their beloved Mama.\",\"genre_ids\":[16,9648,10765,10759,18],\"id\":83097,\"original_language\":\"ja\",\"original_name\":\"約束のネバーランド\",\"poster_path\":\"/yxdeII5tI8qqiERcMxjW9DfB6Gz.jpg\",\"first_air_date\":\"2019-01-09\"},{\"vote_average\":9.1,\"name\":\"The Rising of the Shield Hero\",\"vote_count\":374,\"popularity\":21.256,\"origin_country\":[\"JP\"],\"backdrop_path\":\"/qSgBzXdu6QwVVeqOYOlHolkLRxZ.jpg\",\"overview\":\"Iwatani Naofumi was summoned into a parallel world along with 3 other people to become the world's Heroes. Each of the heroes respectively equipped with their own legendary equipment when summoned, Naofumi received the Legendary Shield as his weapon. Due to Naofumi's lack of charisma and experience he's labeled as the weakest, only to end up betrayed, falsely accused, and robbed by on the third day of adventure. Shunned by everyone from the king to peasants, Naofumi's thoughts were filled with nothing but vengeance and hatred. Thus, his destiny in a parallel World begins...\",\"genre_ids\":[16,10759,10765,18],\"id\":83095,\"original_language\":\"ja\",\"original_name\":\"盾の勇者の成り上がり\",\"poster_path\":\"/ftavpq2PJn5pyo5opJEmj8QleKD.jpg\",\"first_air_date\":\"2019-01-09\"},{\"vote_average\":9,\"name\":\"Rent-a-Girlfriend\",\"vote_count\":246,\"popularity\":115.291,\"first_air_date\":\"2020-07-11\",\"backdrop_path\":\"/ftpjln5qa8xAqnDGamIHtYweRHY.jpg\",\"overview\":\"In today’s Japan, \\\"rental\\\" services can deliver an afternoon with a \\\"friend,\\\" a \\\"parent,\\\" even a fake girlfriend! Kinoshita Kazuya is a 20-year-old failure of a college student. He managed to kiss his girlfriend once, but was dumped after a month.  Completely spiteful, Kazuya gets just desperate enough to give it a try. But he quickly discovers how complicated it can be to \\\"rent\\\" an emotional connection… and his new \\\"girlfriend,\\\" Mizuhara Chizuru, who’s trying to keep her side hustle secret, will panic when she finds out her real life and Kazuya’s are intertwined in surprising ways! A reckless rom-com filled with love and excitement is about to begin!\",\"genre_ids\":[35,16],\"poster_path\":\"/4rqyyM0R3a0EeSlEvdpxDKbjiKB.jpg\",\"original_language\":\"ja\",\"id\":96316,\"origin_country\":[\"JP\"],\"original_name\":\"彼女、お借りします\"},{\"vote_average\":9,\"name\":\"ORESUKI: Are you the only one who loves me?\",\"overview\":\"Kisaragi Amatsuyu is invited out alone by the cool beauty upperclassman Cosmos and his childhood friend Himawari. Expecting to hear their confessions, he triumphantly goes to meet each of them in turn. But Cosmos and Himawari both instead confess to Amatsuyu that they like his friend. Amatsuyu fights this lonely battle, but there is another girl who is looking at him. She is a gloomy girl with glasses and braids. Amatsuyu finds that he hates her, because she's always turning her sharp tongue only on him and finding enjoyment in his troubles. But it turns out that she's the only one who actually does like him.\",\"popularity\":36.044,\"original_name\":\"俺を好きなのはお前だけかよ\",\"backdrop_path\":\"/lHcScx9Qpj6OkTmnzPRGIRhn3FR.jpg\",\"poster_path\":\"/4MojZik5N62IShd2BFVEHyaRBLP.jpg\",\"genre_ids\":[16,35,18],\"vote_count\":141,\"original_language\":\"ja\",\"id\":93019,\"origin_country\":[\"JP\"],\"first_air_date\":\"2019-10-03\"},{\"vote_average\":8.9,\"name\":\"Banana Fish\",\"vote_count\":193,\"popularity\":40.121,\"origin_country\":[\"JP\"],\"backdrop_path\":\"/ci7jTekDFEx6U48XUCl3vBMdrns.jpg\",\"overview\":\"Nature made Ash Lynx beautiful; nurture made him a cold ruthless killer. A runaway brought up as the adopted heir and sex toy of \\\"Papa\\\" Dino Golzine, Ash, now at the rebellious age of seventeen, forsakes the kingdom held out by the devil who raised him. But the hideous secret that drove Ash's older brother mad in Vietnam has suddenly fallen into Papa's insatiably ambitious hands—and it's exactly the wrong time for Eiji Okamura, a pure-hearted young photographer from Japan, to make Ash Lynx's acquaintance...\",\"genre_ids\":[10759,18,9648,16],\"id\":80564,\"original_language\":\"ja\",\"original_name\":\"Banana Fish\",\"poster_path\":\"/1UV5di9UIXwrpCW3xQ4RNli5hEV.jpg\",\"first_air_date\":\"2018-07-06\"},{\"vote_average\":8.9,\"name\":\"My Hero Academia\",\"vote_count\":1873,\"popularity\":39.705,\"origin_country\":[\"JP\"],\"backdrop_path\":\"/3ILMlmC30QUnYkY3XEBOyJ82Dqu.jpg\",\"overview\":\"In a world where eighty percent of the population has some kind of super-powered Quirk, Izuku was unlucky enough to be born completely normal. But that won’t stop him from enrolling in a prestigious hero academy. Now, he’ll get his first taste of brutal rivalry from other schools as he braves the cutthroat, no-holds-barred provisional license exam.\",\"genre_ids\":[10759,16,35],\"id\":65930,\"original_language\":\"ja\",\"original_name\":\"僕のヒーローアカデミア\",\"poster_path\":\"/phuYuzqWW9ru8EA3HVjE9W2Rr3M.jpg\",\"first_air_date\":\"2016-04-03\"},{\"vote_average\":8.9,\"name\":\"We Never Learn: BOKUBEN\",\"overview\":\"Nariyuki Yuiga is in his last and most painful year of high school. In order to gain the “special VIP recommendation” which would grant him a full scholarship to college, he must now tutor his classmates as they struggle to prepare for entrance exams.\\n\\nAmong his pupils are “the sleeping beauty of the literary forest,” Fumino Furuhashi, and “the Thumbelina supercomputer,” Rizu Ogata–two of the most beautiful super-geniuses at the school! While these two were thought to be academically flawless, it turns out that they’re completely clueless outside of their pet subjects…!?\\n\\nAs Nariyuki’s life is turned upside down by these quirky girls who just never learn, he must do everything he can to get them accepted into college! The stage is set for this romantic comedy featuring prodigies who never learn when it comes to studying and love!\",\"popularity\":23.719,\"vote_count\":128,\"backdrop_path\":\"/6tbyZtMYtiNzBy200VXku8jO9ws.jpg\",\"poster_path\":\"/fG3VClLXTvE6MpR0x8fv2q4cpGD.jpg\",\"genre_ids\":[16,35],\"first_air_date\":\"2019-04-07\",\"original_language\":\"ja\",\"original_name\":\"ぼくたちは勉強ができない\",\"origin_country\":[\"JP\"],\"id\":87432},{\"vote_average\":8.9,\"name\":\"Golden Time\",\"vote_count\":249,\"popularity\":21.277,\"origin_country\":[\"JP\"],\"backdrop_path\":\"/qm7NO6Sr25yBlSCJ9L93FwzBZiI.jpg\",\"overview\":\"Banri Tada is a freshman at a Tokyo law school. After an accident, he suffers severe memory loss. Despite the incident, he befriends fellow freshman, Mitsuo Yanagisawa, which leads him to the beautiful, yet obsessive, Kouko Kaga.\",\"genre_ids\":[16,35,18],\"id\":67389,\"original_language\":\"ja\",\"original_name\":\"ゴールデンタイム\",\"poster_path\":\"/qp4eHCZMR14dtubvzr67PZqH5fa.jpg\",\"first_air_date\":\"2013-10-04\"},{\"vote_average\":8.9,\"name\":\"DARLING in the FRANXX\",\"vote_count\":563,\"popularity\":89.575,\"origin_country\":[\"JP\"],\"backdrop_path\":\"/fAzc0AbAlPoQrmzC22z3NBKfvfH.jpg\",\"overview\":\"The story is set in the distant future. The land is ruined, and humanity establishes the mobile fort city Plantation. Pilots produced inside Plantation live in Mistilteinn, also know as the \\\"birdcage.\\\" Children live there knowing nothing of the outside world or the freedom of the sky. Their lives consist of battling to carry out missions. Their enemies are mysterious giant lifeforms known as Kyouryuu, and the children pilot robots called Franxx to face off against them. For the children, riding the Franxx proves their existence.\\n\\nA boy named Hiro is called Code:016, and he was once known as a prodigy. However, he has fallen behind, and his existence seems unnecessary. Not piloting a Franxx is the same as ceasing to exist. One day, a mysterious girl known as \\\"Zero Two\\\" appears before him. Two horns grow out of her head.\",\"genre_ids\":[16,10759,10765],\"id\":76121,\"original_language\":\"ja\",\"original_name\":\"ダーリン・イン・ザ・フランキス\",\"poster_path\":\"/pngI2TAtCVnGtuKbIcK8ZScAwZF.jpg\",\"first_air_date\":\"2018-01-13\"},{\"vote_average\":8.9,\"name\":\"Your Lie in April\",\"overview\":\"Kousei Arima was a genius pianist until his mother's sudden death took away his ability to play. Each day was dull for Kousei. But, then he meets a violinist named Kaori Miyazono who has an eccentric playing style. Can the heartfelt sounds of the girl's violin lead the boy to play the piano again?\",\"popularity\":24.968,\"vote_count\":296,\"backdrop_path\":\"/xzV9va74SZlW0qGXFgp5ujO6gS7.jpg\",\"poster_path\":\"/nksFLYTydth9OYVpMuMbtOBkvMO.jpg\",\"genre_ids\":[16,35,18],\"first_air_date\":\"2014-10-10\",\"original_language\":\"ja\",\"original_name\":\"四月は君の嘘\",\"origin_country\":[\"JP\"],\"id\":61663},{\"vote_average\":8.9,\"name\":\"Yuri!!! on Ice\",\"vote_count\":269,\"popularity\":13.523,\"origin_country\":[\"JP\"],\"backdrop_path\":\"/mWwWhDiQWONiSS4Go12TTjNw0E5.jpg\",\"overview\":\"Yūri Katsuki carried all of Japan's hopes on his shoulders to win at the Gran Prix Finale ice skating competition, but suffered a crushing defeat. He returns home to Kyushu and half feels like he wants to retire, and half feels like he wants to continue ice skating. Suddenly the five-time consecutive world championship ice skater Victor Nikiforov appears before him with Yuri Plisetsky, a young Russian figure skater who is already defeating his seniors. Victor and both Yuris take up the challenge on an unprecedented Gran Prix series.\",\"genre_ids\":[16,35,18],\"id\":68129,\"original_language\":\"ja\",\"original_name\":\"ユーリ!!! on ICE\",\"poster_path\":\"/oKVFf2uNCLMsovWBxAW14MmhHUm.jpg\",\"first_air_date\":\"2016-10-06\"},{\"vote_average\":8.9,\"name\":\"My Love Story!!\",\"overview\":\"Takeo Godau is a giant guy with a giant heart. Too bad the girls don't want him! (They always go for his good-looking best friend, Makoto Sunakawa.) Used to being on the sidelines, Takeo simply stands tall and accepts his fate. But one day when he saves a girl named Rinko Yamato from a harasser on the train, his (love!) life suddenly takes an incredible turn! Takeo can hardly believe it when he crosses paths with Rinko again, and he finds himself falling in love with her... But with handsome Suna around, does Takeo even stand a chance?\",\"popularity\":14.382,\"vote_count\":172,\"backdrop_path\":\"/baO2jzutSsHyDW7eJlSTAGUzSDx.jpg\",\"poster_path\":\"/vDTSx6BuelrdAO1CjVGs9MuUnMP.jpg\",\"genre_ids\":[16,35],\"first_air_date\":\"2015-04-09\",\"original_language\":\"ja\",\"original_name\":\"俺物語!!\",\"origin_country\":[\"JP\"],\"id\":62565},{\"vote_average\":8.9,\"name\":\"Real Girl\",\"vote_count\":257,\"popularity\":28.879,\"origin_country\":[\"JP\"],\"backdrop_path\":\"/jwAUfgwFEzMYUh3lUht8VBB1SU7.jpg\",\"overview\":\"Tsutsui Hikari (a.k.a \\\"Tsuttsun\\\") is a high school student who is content with his virtual life of anime and video games. One day, he gets stuck cleaning the pool with Iroha, a real live girl who is stylish, sassy and known to be easy with boys ... and she aggressively approaches him! Tsuttsun, who has few friends and lives in his own world, finds himself smitten by the confident and wild Iroha ... and his whole world is turned upside down!! It's the awkward and pure love story of a boy who experiences relationship for the first time.\",\"genre_ids\":[16,35,18],\"id\":77721,\"original_language\":\"ja\",\"original_name\":\"３Ｄ彼女　リアルガール\",\"poster_path\":\"/3UmNynM1YXkYylyontGXPHncjOC.jpg\",\"first_air_date\":\"2018-04-04\"},{\"vote_average\":8.9,\"name\":\"Demon Slayer: Kimetsu no Yaiba\",\"vote_count\":1466,\"popularity\":36.49,\"first_air_date\":\"2019-04-06\",\"backdrop_path\":\"/nTvM4mhqNlHIvUkI1gVnW6XP7GG.jpg\",\"overview\":\"It is the Taishō period in Japan. Tanjirō, a kindhearted boy who sells charcoal for a living, finds his family slaughtered by a demon. To make matters worse, his younger sister Nezuko, the sole survivor, has been transformed into a demon herself. Though devastated by this grim reality, Tanjirō resolves to become a “demon slayer” so that he can turn his sister back into a human, and kill the demon that massacred his family.\",\"genre_ids\":[16,18,10765,10759],\"poster_path\":\"/wrCVHdkBlBWdJUZPvnJWcBRuhSY.jpg\",\"original_language\":\"ja\",\"id\":85937,\"origin_country\":[\"JP\"],\"original_name\":\"鬼滅の刃\"},{\"vote_average\":8.8,\"name\":\"Rascal Does Not Dream of Bunny Girl Senpai\",\"overview\":\"Puberty Syndrome—a rumored, mysterious syndrome that only affects those in their puberty. For example, a bunny girl suddenly appeared in front of Sakuta Azusagawa. The bunny girl's real identity is Mai Sakurajima, a teenage celebrity who is currently an inactive high school senior. For some reason, her charming figure does not reflect in the eyes of others. In the course of revealing the mystery behind this phenomenon, Sakuta begins to explore his feelings towards Mai. Set in a city where the skies and seas shine, Sakuta unfolds the meaning behind his bizarre encounters on women with the said syndrome.\",\"popularity\":71.96,\"vote_count\":411,\"backdrop_path\":\"/dRGtv7BLMe00RAxtLkaWjcbzsTA.jpg\",\"poster_path\":\"/cU4jHfo1Q9AEPnFqFqtuSA74gdi.jpg\",\"genre_ids\":[16,35,9648],\"first_air_date\":\"2018-10-04\",\"original_language\":\"ja\",\"original_name\":\"青春ブタ野郎はバニーガール先輩の夢を見ない\",\"origin_country\":[\"JP\"],\"id\":82739},{\"vote_average\":8.8,\"name\":\"Haikyu!!\",\"vote_count\":431,\"popularity\":30.521,\"origin_country\":[\"JP\"],\"backdrop_path\":\"/zotzm1IzazadBQOSocTQ8Ta1bCb.jpg\",\"overview\":\"Shōyō Hinata was inspired to play volleyball after seeing Kurasuno High School's \\\"little giant\\\" competing in the national tournament on TV.  He trains relentlessly to make up for his lack of height, but suffers a crushing defeat in his first and last tournament of middle school at the hands of his rival Tobio Kageyama.  Vowing revenge against Kageyama and hoping to follow in the little giant's footsteps, Hinata joins Kurasuno High School's volleyball team.  To his initial dismay, Kageyama is also on Kurasuno's team.  The former rivals soon overcome their differences though and combine their strengths to form a legendary combo using Hinata's mobility and Kageyama's precision ball-handling.  Together with their team, they compete in prefecture tournaments and promise to meet Kurasuno's fated rival school at nationals.\",\"genre_ids\":[16,35,18],\"id\":60863,\"original_language\":\"ja\",\"original_name\":\"ハイキュー!!\",\"poster_path\":\"/pLpQZHVduTzJTOVNmWfppY9tk3W.jpg\",\"first_air_date\":\"2014-04-06\"},{\"vote_average\":8.8,\"name\":\"Seton Academy: Join the Pack!\",\"vote_count\":128,\"popularity\":35.144,\"poster_path\":\"/yXSH5BYOhYt26S5x7Aqz2VXj6P1.jpg\",\"backdrop_path\":\"/qCPusV7wkA2PkwSeFNYgIgda5yc.jpg\",\"origin_country\":[\"JP\"],\"genre_ids\":[16,35],\"original_name\":\"群れなせ！シートン学園\",\"original_language\":\"ja\",\"id\":96150,\"first_air_date\":\"2020-01-07\",\"overview\":\"Seton Academy, a school full of animals where, thanks to population decline, there are fewer humans than any other creature. Mazama Jin, an animal hater and the only human male in his class, falls in love with Hino Hitomi, the only female human, the moment he lays eyes her. However he soon finds himself entangled with various other creatures after he reluctantly joins the 'pack' of Lanka the wolf, the only other member of her pack. After getting to know each other, the two decide to create a cooking club, and after a few bad-blooded misunderstandings, Ranka soon joins the club as well.\\n\\nThus begins the howl-some and howl-arious story of two normal humans; an adorable wolf; a cheerful koala; a sluggish, blonde sloth; and a feline with cattitude in their newfound club—in a story that teaches that friendship can be forged by creatures of different kinds.\"},{\"vote_average\":8.8,\"name\":\"Kamisama Kiss\",\"overview\":\"Nanami was just a normal high school girl down on her luck until a stranger’s lips marked her as the new Land God and turned her world upside down. Now, she’s figuring out the duties of a deity with the help of Tomoe, a reformed fox demon who reluctantly becomes her familiar in a contract sealed with a kiss. The new responsibilities—and boys—are a lot to handle, like the crow demon masquerading as a gorgeous pop idol and the adorable snake spirit who’s chosen the newly minted god to be his bride. As the headstrong Tomoe tries to whip her into shape, Nanami finds that love just might have cute, pointed fox ears. With romance in the air, will the human deity be able to prove herself worthy of her new title?\",\"popularity\":30.721,\"vote_count\":243,\"backdrop_path\":\"/xdTwlG8MYAOkFuAGUqt8LgmgTNZ.jpg\",\"poster_path\":\"/8nfyyLqcAbEocNvPXj26uIflThp.jpg\",\"genre_ids\":[16,35,14,10749],\"first_air_date\":\"2012-10-02\",\"original_language\":\"ja\",\"original_name\":\"神様はじめました\",\"origin_country\":[\"JP\"],\"id\":62741}],\"total_pages\":71}"
+    fun getTVShows(): List<TVShowEntity>{
+        val tvShows = arrayListOf<TVShowEntity>()
+
+        tvShows.add(TVShowEntity(
+                100,
+                "I Am Not an Animal",
+                "I Am Not An Animal is an animated comedy series about the only six talking animals in the world, whose cosseted existence in a vivisection unit is turned upside down when they are liberated by animal rights activists.",
+                Constant.IMG_BASE_URL + "/qG59J1Q7rpBc1dvku4azbzcqo8h.jpg",
+                9.4,
+                "2004-05-10",
+                "en"
+        ))
+        tvShows.add(TVShowEntity(
+                88040,
+                "Given",
+                "The played chord made the rusty air and both our eardrums vibrate smoothly. From that moment... our music was born.",
+                Constant.IMG_BASE_URL + "/pdDCcAq8RNSZNk81PXYoHNUPHjn.jpg",
+                9.2,
+                "2019-07-11",
+                "ja"
+        ))
+        tvShows.add(TVShowEntity(
+                83097,
+                "The Promised Neverland",
+                "Surrounded by a forest and a gated entrance, the Grace Field House is inhabited by orphans happily living together as one big family, looked after by their \"Mama,\" Isabella. Although they are required to take tests daily, the children are free to spend their time as they see fit, usually playing outside, as long as they do not venture too far from the orphanage — a rule they are expected to follow no matter what. However, all good times must come to an end, as every few months, a child is adopted and sent to live with their new family... never to be heard from again.\n" +
+                        "\n" +
+                        "However, the three oldest siblings have their suspicions about what is actually happening at the orphanage, and they are about to discover the cruel fate that awaits the children living at Grace Field, including the twisted nature of their beloved Mama.",
+                Constant.IMG_BASE_URL + "/yxdeII5tI8qqiERcMxjW9DfB6Gz.jpg",
+                9.1,
+                "2019-01-09",
+                "ja"
+        ))
+        tvShows.add(TVShowEntity(
+                83095,
+                "The Rising of the Shield Hero",
+                "Iwatani Naofumi was summoned into a parallel world along with 3 other people to become the world's Heroes. Each of the heroes respectively equipped with their own legendary equipment when summoned, Naofumi received the Legendary Shield as his weapon. Due to Naofumi's lack of charisma and experience he's labeled as the weakest, only to end up betrayed, falsely accused, and robbed by on the third day of adventure. Shunned by everyone from the king to peasants, Naofumi's thoughts were filled with nothing but vengeance and hatred. Thus, his destiny in a parallel World begins...",
+                Constant.IMG_BASE_URL + "/ftavpq2PJn5pyo5opJEmj8QleKD.jpg",
+                9.1,
+                "2019-01-09",
+                "ja"
+        ))
+        tvShows.add(TVShowEntity(
+                96316,
+                "Rent-a-Girlfriend",
+                "In today’s Japan, \"rental\" services can deliver an afternoon with a \"friend,\" a \"parent,\" even a fake girlfriend! Kinoshita Kazuya is a 20-year-old failure of a college student. He managed to kiss his girlfriend once, but was dumped after a month.  Completely spiteful, Kazuya gets just desperate enough to give it a try. But he quickly discovers how complicated it can be to \"rent\" an emotional connection… and his new \"girlfriend,\" Mizuhara Chizuru, who’s trying to keep her side hustle secret, will panic when she finds out her real life and Kazuya’s are intertwined in surprising ways! A reckless rom-com filled with love and excitement is about to begin!",
+                Constant.IMG_BASE_URL + "/4rqyyM0R3a0EeSlEvdpxDKbjiKB.jpg",
+                9.0,
+                "2020-07-11",
+                "ja"
+        ))
+        tvShows.add(TVShowEntity(
+                93019,
+                "ORESUKI: Are you the only one who loves me?",
+                "Kisaragi Amatsuyu is invited out alone by the cool beauty upperclassman Cosmos and his childhood friend Himawari. Expecting to hear their confessions, he triumphantly goes to meet each of them in turn. But Cosmos and Himawari both instead confess to Amatsuyu that they like his friend. Amatsuyu fights this lonely battle, but there is another girl who is looking at him. She is a gloomy girl with glasses and braids. Amatsuyu finds that he hates her, because she's always turning her sharp tongue only on him and finding enjoyment in his troubles. But it turns out that she's the only one who actually does like him.",
+                Constant.IMG_BASE_URL + "/4MojZik5N62IShd2BFVEHyaRBLP.jpg",
+                9.0,
+                "2019-10-03",
+                "ja"
+        ))
+        tvShows.add(TVShowEntity(
+                80564,
+                "Banana Fish",
+                "Nature made Ash Lynx beautiful; nurture made him a cold ruthless killer. A runaway brought up as the adopted heir and sex toy of \"Papa\" Dino Golzine, Ash, now at the rebellious age of seventeen, forsakes the kingdom held out by the devil who raised him. But the hideous secret that drove Ash's older brother mad in Vietnam has suddenly fallen into Papa's insatiably ambitious hands—and it's exactly the wrong time for Eiji Okamura, a pure-hearted young photographer from Japan, to make Ash Lynx's acquaintance...",
+                Constant.IMG_BASE_URL + "/1UV5di9UIXwrpCW3xQ4RNli5hEV.jpg",
+                8.9,
+                "2018-07-06",
+                "ja"
+        ))
+        tvShows.add(TVShowEntity(
+                65930,
+                "My Hero Academia",
+                "In a world where eighty percent of the population has some kind of super-powered Quirk, Izuku was unlucky enough to be born completely normal. But that won’t stop him from enrolling in a prestigious hero academy. Now, he’ll get his first taste of brutal rivalry from other schools as he braves the cutthroat, no-holds-barred provisional license exam.",
+                Constant.IMG_BASE_URL + "/phuYuzqWW9ru8EA3HVjE9W2Rr3M.jpg",
+                8.9,
+                "2016-04-03",
+                "ja"
+        ))
+        tvShows.add(TVShowEntity(
+                87432,
+                "We Never Learn: BOKUBEN",
+                "Nariyuki Yuiga is in his last and most painful year of high school. In order to gain the “special VIP recommendation” which would grant him a full scholarship to college, he must now tutor his classmates as they struggle to prepare for entrance exams.\n" +
+                        "\n" +
+                        "Among his pupils are “the sleeping beauty of the literary forest,” Fumino Furuhashi, and “the Thumbelina supercomputer,” Rizu Ogata–two of the most beautiful super-geniuses at the school! While these two were thought to be academically flawless, it turns out that they’re completely clueless outside of their pet subjects…!?\n" +
+                        "\n" +
+                        "As Nariyuki’s life is turned upside down by these quirky girls who just never learn, he must do everything he can to get them accepted into college! The stage is set for this romantic comedy featuring prodigies who never learn when it comes to studying and love!",
+                Constant.IMG_BASE_URL + "/fG3VClLXTvE6MpR0x8fv2q4cpGD.jpg",
+                8.9,
+                "2019-04-07",
+                "ja"
+        ))
+        tvShows.add(TVShowEntity(
+                67389,
+                "Golden Time",
+                "Banri Tada is a freshman at a Tokyo law school. After an accident, he suffers severe memory loss. Despite the incident, he befriends fellow freshman, Mitsuo Yanagisawa, which leads him to the beautiful, yet obsessive, Kouko Kaga.",
+                Constant.IMG_BASE_URL + "/qp4eHCZMR14dtubvzr67PZqH5fa.jpg",
+                8.9,
+                "2013-10-04",
+                "ja"
+        ))
+        tvShows.add(TVShowEntity(
+                76121,
+                "DARLING in the FRANXX",
+                "The story is set in the distant future. The land is ruined, and humanity establishes the mobile fort city Plantation. Pilots produced inside Plantation live in Mistilteinn, also know as the \"birdcage.\" Children live there knowing nothing of the outside world or the freedom of the sky. Their lives consist of battling to carry out missions. Their enemies are mysterious giant lifeforms known as Kyouryuu, and the children pilot robots called Franxx to face off against them. For the children, riding the Franxx proves their existence.\n" +
+                        "\n" +
+                        "A boy named Hiro is called Code:016, and he was once known as a prodigy. However, he has fallen behind, and his existence seems unnecessary. Not piloting a Franxx is the same as ceasing to exist. One day, a mysterious girl known as \"Zero Two\" appears before him. Two horns grow out of her head.",
+                Constant.IMG_BASE_URL + "/pngI2TAtCVnGtuKbIcK8ZScAwZF.jpg",
+                8.9,
+                "2018-01-13",
+                "ja"
+        ))
+
+        return tvShows
+    }
+
+    fun getMovieById(movieId: Int): MovieEntity? {
+        val movies = getMovies()
+
+        movies.forEach {
+            if(movieId == it.id){
+                return it
+            }
+        }
+
+        return null
+    }
+
+    fun getTVShowById(tvShowId: Int): TVShowEntity? {
+        val tvShows = getTVShows()
+
+        tvShows.forEach {
+            if(tvShowId == it.id){
+                return it
+            }
+        }
+
+        return null
     }
 }

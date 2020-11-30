@@ -1,7 +1,5 @@
 package com.zgenit.vilmu.data.source.local.entity
 
-import com.google.gson.annotations.SerializedName
-
 //
 // Created by Mfdsix on 29/11/2020.
 // Copyright (c) 2020 Zgenit. All rights reserved.

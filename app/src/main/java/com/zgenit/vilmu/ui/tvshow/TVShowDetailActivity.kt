@@ -61,17 +61,17 @@ class TVShowDetailActivity : AppCompatActivity() {
         supportActionBar?.title = tvShow.title
 
         val textTitle: TextView = findViewById(R.id.text_tv_show_title)
-        val textCategory: TextView = findViewById(R.id.text_tv_show_category)
-        val textYear: TextView = findViewById(R.id.text_tv_show_year)
+        val textLanguage: TextView = findViewById(R.id.text_tv_show_language)
+        val textFirstAirDate: TextView = findViewById(R.id.text_tv_show_first_air_date)
         val textScore: TextView = findViewById(R.id.text_tv_show_score)
         val textOverview: TextView = findViewById(R.id.text_tv_show_overview)
         val imgPoster: ImageView = findViewById(R.id.img_tv_show_poster)
         val imgBackground: ImageView = findViewById(R.id.img_tv_show_background)
 
         textTitle.text = tvShow.title
-        textCategory.text = tvShow.language
-        textYear.text = tvShow.firstAirDate
-        textScore.text = "${tvShow.voteAverage}%"
+        textLanguage.text = tvShow.language
+        textFirstAirDate.text = tvShow.firstAirDate
+        textScore.text = tvShow.voteAverage.toString()
         textOverview.text = tvShow.overview
 
         Glide.with(this)

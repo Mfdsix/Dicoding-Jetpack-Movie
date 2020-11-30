@@ -69,11 +69,11 @@
                 tools:text="@string/title" />
 
             <TextView
-                android:id="@+id/text_tv_show_category"
+                android:id="@+id/text_tv_show_language"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="@string/category"
+                android:text="@string/language"
                 android:textColor="@color/colorTextSecondary"
                 android:textStyle="italic"
                 android:textAlignment="center"
@@ -86,13 +86,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/year"
+                android:text="@string/first_air_date"
                 android:textColor="@color/colorTextSecondary"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_tv_show_category" />
+                app:layout_constraintTop_toBottomOf="@+id/text_tv_show_language" />
 
             <TextView
-                android:id="@+id/text_tv_show_year"
+                android:id="@+id/text_tv_show_first_air_date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -102,7 +102,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/guideline5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView"
-                tools:text="@string/year" />
+                tools:text="@string/first_air_date" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline5"
@@ -116,22 +116,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
-                android:text="@string/duration"
+                android:text="@string/user_score"
                 android:textColor="@color/colorTextSecondary"
                 app:layout_constraintStart_toStartOf="@+id/guideline5"
                 app:layout_constraintTop_toTopOf="@+id/textView" />
 
             <TextView
-                android:id="@+id/text_tv_show_duration"
+                android:id="@+id/text_tv_show_score"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/duration"
+                android:text="@string/user_score"
                 android:textColor="@color/colorTextTertiary"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.105"
                 app:layout_constraintStart_toStartOf="@+id/textView5"
-                app:layout_constraintTop_toTopOf="@+id/text_tv_show_year" />
+                app:layout_constraintTop_toTopOf="@+id/text_tv_show_first_air_date" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -139,26 +139,6 @@
             android:layout_width="match_parent"
             android:padding="20dp"
             android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/user_score"
-                android:textColor="@color/colorText"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/text_tv_show_score"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textStyle="bold"
-                android:text="@string/user_score"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -169,7 +149,7 @@
                 android:textColor="@color/colorText"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_tv_show_score" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/text_tv_show_overview"

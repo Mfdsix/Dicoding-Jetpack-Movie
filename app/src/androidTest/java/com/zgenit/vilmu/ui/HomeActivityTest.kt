@@ -2,6 +2,7 @@ package com.zgenit.vilmu.ui
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.contrib.RecyclerViewActions
@@ -9,6 +10,10 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import com.zgenit.vilmu.R
 import com.zgenit.vilmu.ui.home.HomeActivity
+import com.zgenit.vilmu.utils.DataDummy
+import com.zgenit.vilmu.utils.EspressoIdlingResource
+import org.junit.After
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
@@ -24,6 +29,15 @@ class HomeActivityTest {
 
     @get:Rule
     var activityRule = ActivityTestRule(HomeActivity::class.java)
+
+    @Before
+    fun setUp() {
+        IdlingRegistry.getInstance().register(EspressoIdlingResource.espressoTestIdlingResource)
+    }
+    @After
+    fun tearDown() {
+        IdlingRegistry.getInstance().unregister(EspressoIdlingResource.espressoTestIdlingResource)
+    }
 
     @Test
     fun loadMovies() {
@@ -50,35 +64,25 @@ class HomeActivityTest {
         onView(withId(R.id.text_movie_title))
             .check(ViewAssertions.matches(withText(movies[0].title)))
 
-        onView(withId(R.id.text_movie_category))
+        onView(withId(R.id.text_movie_language))
                 .check(ViewAssertions.matches(isDisplayed()))
-        onView(withId(R.id.text_movie_category))
-                .check(ViewAssertions.matches(withText(movies[0].category)))
+        onView(withId(R.id.text_movie_language))
+                .check(ViewAssertions.matches(withText(movies[0].language)))
 
-        onView(withId(R.id.text_movie_year))
+        onView(withId(R.id.text_movie_release_date))
                 .check(ViewAssertions.matches(isDisplayed()))
-        onView(withId(R.id.text_movie_year))
-                .check(ViewAssertions.matches(withText(movies[0].year.toString())))
-
-        onView(withId(R.id.text_movie_director))
-                .check(ViewAssertions.matches(isDisplayed()))
-        onView(withId(R.id.text_movie_director))
-                .check(ViewAssertions.matches(withText(movies[0].director)))
-
-        onView(withId(R.id.text_movie_duration))
-                .check(ViewAssertions.matches(isDisplayed()))
-        onView(withId(R.id.text_movie_duration))
-                .check(ViewAssertions.matches(withText(movies[0].duration)))
+        onView(withId(R.id.text_movie_release_date))
+                .check(ViewAssertions.matches(withText(movies[0].releaseDate)))
 
         onView(withId(R.id.text_movie_score))
                 .check(ViewAssertions.matches(isDisplayed()))
         onView(withId(R.id.text_movie_score))
-                .check(ViewAssertions.matches(withText("${movies[0].userScore}%")))
+                .check(ViewAssertions.matches(withText(movies[0].voteAverage.toString())))
 
         onView(withId(R.id.text_movie_overview))
                 .check(ViewAssertions.matches(isDisplayed()))
         onView(withId(R.id.text_movie_overview))
-                .check(ViewAssertions.matches(withText(movies[0].description)))
+                .check(ViewAssertions.matches(withText(movies[0].overview)))
     }
 
     @Test
@@ -115,30 +119,25 @@ class HomeActivityTest {
         onView(withId(R.id.text_tv_show_title))
                 .check(ViewAssertions.matches(withText(tvShows[0].title)))
 
-        onView(withId(R.id.text_tv_show_category))
+        onView(withId(R.id.text_tv_show_language))
                 .check(ViewAssertions.matches(isDisplayed()))
-        onView(withId(R.id.text_tv_show_category))
-                .check(ViewAssertions.matches(withText(tvShows[0].category)))
+        onView(withId(R.id.text_tv_show_language))
+                .check(ViewAssertions.matches(withText(tvShows[0].language)))
 
-        onView(withId(R.id.text_tv_show_year))
+        onView(withId(R.id.text_tv_show_first_air_date))
                 .check(ViewAssertions.matches(isDisplayed()))
-        onView(withId(R.id.text_tv_show_year))
-                .check(ViewAssertions.matches(withText(tvShows[0].year.toString())))
-
-        onView(withId(R.id.text_tv_show_duration))
-                .check(ViewAssertions.matches(isDisplayed()))
-        onView(withId(R.id.text_tv_show_duration))
-                .check(ViewAssertions.matches(withText(tvShows[0].duration)))
+        onView(withId(R.id.text_tv_show_first_air_date))
+                .check(ViewAssertions.matches(withText(tvShows[0].firstAirDate.toString())))
 
         onView(withId(R.id.text_tv_show_score))
                 .check(ViewAssertions.matches(isDisplayed()))
         onView(withId(R.id.text_tv_show_score))
-                .check(ViewAssertions.matches(withText("${tvShows[0].userScore}%")))
+                .check(ViewAssertions.matches(withText(tvShows[0].voteAverage.toString())))
 
         onView(withId(R.id.text_tv_show_overview))
                 .check(ViewAssertions.matches(isDisplayed()))
         onView(withId(R.id.text_tv_show_overview))
-                .check(ViewAssertions.matches(withText(tvShows[0].description)))
+                .check(ViewAssertions.matches(withText(tvShows[0].overview)))
     }
 
 }

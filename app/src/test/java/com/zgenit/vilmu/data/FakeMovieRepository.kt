@@ -6,8 +6,6 @@ import com.zgenit.vilmu.data.source.MovieDataSource
 import com.zgenit.vilmu.data.source.local.entity.MovieEntity
 import com.zgenit.vilmu.data.source.local.entity.TVShowEntity
 import com.zgenit.vilmu.data.source.remote.RemoteDataSource
-import com.zgenit.vilmu.data.source.remote.response.MovieResponse
-import com.zgenit.vilmu.data.source.remote.response.TVShowResponse
 import java.util.*
 
 //
@@ -21,17 +19,18 @@ class FakeMovieRepository(private val remoteDataSource: RemoteDataSource) : Movi
 
         val movieResults = MutableLiveData<List<MovieEntity>>()
         remoteDataSource.getMovies(object: RemoteDataSource.LoadMoviesCallback{
-            override fun onMoviesReceived(movieResponses: List<MovieResponse>) {
+
+            override fun onMoviesReceived(movieResponses: List<MovieEntity>) {
                 val movieList = ArrayList<MovieEntity>()
                 for (response in movieResponses) {
                     val course = MovieEntity(
-                        response.id,
-                        response.title,
-                        response.overview,
-                        response.posterPath,
-                        response.voteAverage,
-                        response.releaseDate,
-                        response.language,
+                            response.id,
+                            response.title,
+                            response.overview,
+                            response.posterPath,
+                            response.voteAverage,
+                            response.releaseDate,
+                            response.language,
                     )
 
                     movieList.add(course)
@@ -48,16 +47,17 @@ class FakeMovieRepository(private val remoteDataSource: RemoteDataSource) : Movi
 
         val movieResult = MutableLiveData<MovieEntity?>()
         remoteDataSource.getMovieById(movieId, object : RemoteDataSource.LoadMovieByIdCallback{
-            override fun onMovieByIdReceived(movieResponse: MovieResponse?) {
+
+            override fun onMovieByIdReceived(movieResponse: MovieEntity?) {
                 if(movieResponse != null){
                     movieResult.postValue(MovieEntity(
-                        movieResponse.id,
-                        movieResponse.title,
-                        movieResponse.overview,
-                        movieResponse.posterPath,
-                        movieResponse.voteAverage,
-                        movieResponse.releaseDate,
-                        movieResponse.language,
+                            movieResponse.id,
+                            movieResponse.title,
+                            movieResponse.overview,
+                            movieResponse.posterPath,
+                            movieResponse.voteAverage,
+                            movieResponse.releaseDate,
+                            movieResponse.language,
                     ))
                 }
             }
@@ -72,17 +72,18 @@ class FakeMovieRepository(private val remoteDataSource: RemoteDataSource) : Movi
         val tvShowResults = MutableLiveData<List<TVShowEntity>>()
 
         remoteDataSource.getTVShows(object : RemoteDataSource.LoadTVShowsCallback{
-            override fun onTVShowsReceived(tvShowResponses: List<TVShowResponse>) {
+
+            override fun onTVShowsReceived(tvShowResponses: List<TVShowEntity>) {
                 val tvShowList = ArrayList<TVShowEntity>()
                 for (response in tvShowResponses) {
                     val course = TVShowEntity(
-                        response.id,
-                        response.title,
-                        response.overview,
-                        response.posterPath,
-                        response.voteAverage,
-                        response.firstAirDate,
-                        response.language,
+                            response.id,
+                            response.title,
+                            response.overview,
+                            response.posterPath,
+                            response.voteAverage,
+                            response.firstAirDate,
+                            response.language,
                     )
 
                     tvShowList.add(course)
@@ -101,16 +102,17 @@ class FakeMovieRepository(private val remoteDataSource: RemoteDataSource) : Movi
         val tvShowResult = MutableLiveData<TVShowEntity?>()
 
         remoteDataSource.getTVShowById(tvShowId, object : RemoteDataSource.LoadTVShowByIdCallback{
-            override fun onTVShowByIdReceived(tvShowResponse: TVShowResponse?) {
+
+            override fun onTVShowByIdReceived(tvShowResponse: TVShowEntity?) {
                 if(tvShowResponse != null){
                     tvShowResult.postValue(TVShowEntity(
-                        tvShowResponse.id,
-                        tvShowResponse.title,
-                        tvShowResponse.overview,
-                        tvShowResponse.posterPath,
-                        tvShowResponse.voteAverage,
-                        tvShowResponse.firstAirDate,
-                        tvShowResponse.language,
+                            tvShowResponse.id,
+                            tvShowResponse.title,
+                            tvShowResponse.overview,
+                            tvShowResponse.posterPath,
+                            tvShowResponse.voteAverage,
+                            tvShowResponse.firstAirDate,
+                            tvShowResponse.language,
                     ))
                 }
             }

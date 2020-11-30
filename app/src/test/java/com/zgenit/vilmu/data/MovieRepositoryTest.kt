@@ -1,23 +1,17 @@
 package com.zgenit.vilmu.data
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import com.zgenit.vilmu.data.source.MovieRepository
-import com.zgenit.vilmu.data.source.local.entity.MovieEntity
-import com.zgenit.vilmu.data.source.local.entity.TVShowEntity
+import com.nhaarman.mockitokotlin2.any
+import com.nhaarman.mockitokotlin2.doAnswer
 import com.zgenit.vilmu.data.source.remote.RemoteDataSource
-import com.zgenit.vilmu.ui.movie.MovieViewModel
-import com.zgenit.vilmu.ui.tvshow.TVShowViewModel
-import com.zgenit.vilmu.utils.JsonHelper
+import com.zgenit.vilmu.utils.DataDummy
+import com.zgenit.vilmu.utils.LiveDataTestUtil
 import org.junit.Assert
 import org.junit.Assert.assertEquals
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.mockito.Mock
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.verify
+import org.mockito.ArgumentMatchers.eq
+import org.mockito.Mockito
 
 //
 // Created by Mfdsix on 27/11/2020.
@@ -26,87 +20,73 @@ import org.mockito.Mockito.verify
 
 class MovieRepositoryTest {
 
-    private lateinit var movieViewModel: MovieViewModel
-    private lateinit var tvShowViewModel: TVShowViewModel
-
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    @Mock
-    private lateinit var movieRepository: MovieRepository
-    @Mock
-    private lateinit var movieObserver: Observer<List<MovieEntity>>
-    @Mock
-    private lateinit var tvShowObserver: Observer<List<TVShowEntity>>
+    private val remote = Mockito.mock(RemoteDataSource::class.java)
+    private val movieRepository = FakeMovieRepository(remote)
 
-    @Before
-    fun setUp() {
-        val remoteDataSource = RemoteDataSource.getInstance(JsonHelper())
-        movieRepository = MovieRepository.getInstance(remoteDataSource)
-        movieViewModel = MovieViewModel(movieRepository)
-        tvShowViewModel = TVShowViewModel(movieRepository)
-    }
+    private val movieResponses = DataDummy.getMovies()
+    private val tvShowResponses = DataDummy.getTVShows()
 
     @Test
     fun getMovies() {
-        val movies = movieViewModel.getMovies()
-
-        `when`(movieRepository.getMovies()).thenReturn(movies)
-        val movieEntities = movieRepository.getMovies()
-        verify(movieRepository).getMovies()
+        doAnswer { invocation ->
+            (invocation.arguments[0] as RemoteDataSource.LoadMoviesCallback)
+                    .onMoviesReceived(movieResponses)
+            null
+        }.`when`(remote).getMovies(any())
+        val movieEntities = LiveDataTestUtil.getValue(movieRepository.getMovies())
+        com.nhaarman.mockitokotlin2.verify(remote).getMovies(any())
         Assert.assertNotNull(movieEntities)
-        assertEquals(movies.value?.size?.toLong(), movieEntities.value?.size?.toLong())
-
-        movieViewModel.getMovies().observeForever(movieObserver)
-        verify(movieObserver).onChanged(movies.value)
+        assertEquals(movieResponses.size.toLong(), movieEntities.size.toLong())
     }
 
     @Test
     fun getMovieById() {
-        val movies = movieViewModel.getMovies()
+        val movies = movieResponses
 
-        movies.value?.forEach {
-            val movie = MutableLiveData<MovieEntity>()
-            movie.postValue(it)
-            `when`(movieRepository.getMovieById(it.id ?: 0)).thenReturn(movie)
-            val movieEntity = movieRepository.getMovieById(it.id ?: 0)
-            verify(movieRepository).getMovieById(it.id ?: 0)
+        movies.forEach {
+            val movieId = it.id ?: 0
+            doAnswer { invocation ->
+                (invocation.arguments[1] as RemoteDataSource.LoadMovieByIdCallback)
+                        .onMovieByIdReceived(it)
+                null
+            }.`when`(remote).getMovieById(eq(movieId), any())
+            val movieEntity = LiveDataTestUtil.getValue(movieRepository.getMovieById(movieId))
+            com.nhaarman.mockitokotlin2.verify(remote).getMovieById(eq(movieId), any())
             Assert.assertNotNull(movieEntity)
         }
-
-        movieViewModel.getMovies().observeForever(movieObserver)
-        verify(movieObserver).onChanged(movies.value)
     }
 
     @Test
     fun getTVShows() {
-        val tvShows = tvShowViewModel.getTVShows()
-
-        `when`(movieRepository.getTVShows()).thenReturn(tvShows)
-        val tvShowEntities = movieRepository.getTVShows()
-        verify(movieRepository).getTVShows()
+        doAnswer { invocation ->
+            (invocation.arguments[0] as RemoteDataSource.LoadTVShowsCallback)
+                    .onTVShowsReceived(tvShowResponses)
+            null
+        }.`when`(remote).getTVShows(any())
+        val tvShowEntities = LiveDataTestUtil.getValue(movieRepository.getTVShows())
+        com.nhaarman.mockitokotlin2.verify(remote).getTVShows(any())
         Assert.assertNotNull(tvShowEntities)
-        assertEquals(tvShows.value?.size?.toLong(), tvShowEntities.value?.size?.toLong())
-
-        tvShowViewModel.getTVShows().observeForever(tvShowObserver)
-        verify(tvShowObserver).onChanged(tvShows.value)
+        assertEquals(tvShowResponses.size.toLong(), tvShowEntities.size.toLong())
     }
 
     @Test
     fun getTVShowById() {
-        val tvShows = tvShowViewModel.getTVShows()
+        val tvShows = tvShowResponses
 
-        tvShows.value?.forEach {
-            val tvShow = MutableLiveData<TVShowEntity>()
-            tvShow.postValue(it)           
-            
-            `when`(movieRepository.getTVShowById(it.id ?: 0)).thenReturn(tvShow)
-            val tvShowEntity = movieRepository.getTVShowById(it.id ?: 0)
-            verify(movieRepository).getTVShowById(it.id ?: 0)
+        tvShows.forEach {
+            val tvShowId = it.id ?: 0
+            doAnswer { invocation ->
+                (invocation.arguments[1] as RemoteDataSource.LoadTVShowByIdCallback)
+                        .onTVShowByIdReceived(it)
+                null
+            }.`when`(remote).getTVShowById(eq(tvShowId), any())
+            val tvShowEntity = LiveDataTestUtil.getValue(movieRepository.getTVShowById(tvShowId))
+            com.nhaarman.mockitokotlin2.verify(remote).getTVShowById(eq(tvShowId), any())
             Assert.assertNotNull(tvShowEntity)
         }
-
-        tvShowViewModel.getTVShows().observeForever(tvShowObserver)
-        verify(tvShowObserver).onChanged(tvShows.value)
     }
+
 }
